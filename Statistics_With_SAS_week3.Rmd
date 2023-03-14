@@ -1,0 +1,255 @@
+---
+title: "Statistics With SAS - Week 3"
+author: "Hao Sun"
+output: 
+  html_document:
+    includes: 
+      in_header: header.html
+    css: "styles/agate.css"
+---
+
+## Week 3 {-}
+
+### Two-way ANOVA with interactions
+
+```{eval=FALSE, class='SAS'}
+/*st103d01.sas*/ 
+/* Set graphics off initially */
+ods graphics off;
+
+/* Part A: Descriptive Analysis */
+/* Use PROC MEANS to calculate selected descriptive statistics */
+proc means data=STAT1.ameshousing3
+           mean var std nway;
+    /* Group data by Season_Sold and Heating_QC variables */
+    class Season_Sold Heating_QC;
+    /* Calculate statistics for SalePrice variable */
+    var SalePrice;
+    /* Format Season_Sold variable */
+    format Season_Sold Season.;
+    /* Specify title for output */
+    title 'Selected Descriptive Statistics';
+run;
+
+/* Part B: Graphical Analysis */
+/* Use PROC SGPLOT to create a line plot of SalePrice by Season_Sold and Heating_QC */
+proc sgplot data=STAT1.ameshousing3;
+    /* Group data by Season_Sold and Heating_QC variables */
+    vline Season_Sold / group=Heating_QC 
+                        /* Calculate mean SalePrice for each group */
+                        stat=mean 
+                        /* Use SalePrice as the response variable */
+                        response=SalePrice 
+                        /* Add markers to the plot */
+                        markers;
+    /* Format Season_Sold variable */
+    format Season_Sold season.;
+run; 
+
+/* Part C: Inferential Analysis */
+/* Set graphics on for this part */
+ods graphics on;
+
+/* Use PROC GLM to create a linear regression model */
+proc glm data=STAT1.ameshousing3 order=internal;
+    /* Group data by Season_Sold and Heating_QC variables */
+    class Season_Sold Heating_QC;
+    /* Use Heating_QC and Season_Sold variables to predict SalePrice */
+    model SalePrice = Heating_QC Season_Sold;
+    /* Calculate least squares means for Season_Sold variable */
+    lsmeans Season_Sold / diff adjust=tukey;
+    /* Format Season_Sold variable */
+    format Season_Sold season.;
+    /* Specify title for output */
+    title "Model with Heating Quality and Season as Predictors";
+run;
+
+/* Quit PROC GLM */
+quit;
+
+/* Remove title from output */
+title;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st103d01-results.html">Result</a>
+
+Example 2: 
+
+```{eval=FALSE, class='SAS'}
+/*st103d02.sas*/  
+/* Part A: Creating an Interaction Model */
+/* Turn graphics on for this part */
+ods graphics on;
+
+/* Use PROC GLM to create an interaction model */
+proc glm data=STAT1.ameshousing3
+         order=internal
+         /* Only plot the interaction plot */
+         plots(only)=intplot;
+   /* Group data by Season_Sold and Heating_QC variables */
+   class Season_Sold Heating_QC;
+   /* Use Heating_QC, Season_Sold, and their interaction to predict SalePrice */
+   model SalePrice = Heating_QC Season_Sold Heating_QC*Season_Sold;
+   /* Calculate least squares means for Heating_QC and Season_Sold variables */
+   lsmeans Heating_QC*Season_Sold / diff slice=Heating_QC;
+   /* Format Season_Sold variable */
+   format Season_Sold Season.;
+   /* Store the interaction model */
+   store out=interact;
+   /* Specify title for output */
+   title "Model with Heating Quality and Season as Interacting Predictors";
+run;
+/* Quit PROC GLM */
+quit;
+
+/* Part B: Creating an Interaction Plot */
+/* Use PROC PLM to create an interaction plot */
+proc plm restore=interact
+         /* Show all available plots */
+         plots=all;
+   /* Slice the data by Heating_QC variable and adjust for multiple comparisons using Tukey's method */
+   slice Heating_QC*Season_Sold / sliceby=Heating_QC adjust=tukey;
+   /* Create an effect plot with interaction and display confidence limits for the means */
+   effectplot interaction(sliceby=Heating_QC) / clm;
+run;
+
+/* Remove title from output */
+title;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st103d02-results.html">Result</a>
+
+Example 3: 
+
+```{eval=FALSE, class='SAS'}
+/*st103s01.sas*/
+/* Part A: Creating a Grouped Means Plot */
+/* Use PROC SGPLOT to create a grouped means plot */
+proc sgplot data=STAT1.drug;
+    /* Group the data by Disease variable and plot mean BloodP against DrugDose */
+    vline DrugDose / group=Disease 
+                     stat=mean 
+                     response=BloodP 
+                     markers;
+    /* Format the DrugDose variable */
+    format DrugDose dosefmt.;
+run; 
+
+/* Part B: Creating an Interaction Model */
+/* Turn graphics on for this part */
+ods graphics on;
+
+/* Use PROC GLM to create an interaction model */
+proc glm data=STAT1.drug plots(only)=intplot;
+    /* Group data by DrugDose and Disease variables */
+    class DrugDose Disease;
+    /* Use DrugDose, Disease, and their interaction to predict BloodP */
+    model BloodP = DrugDose|Disease;
+    /* Calculate least squares means for DrugDose and Disease variables */
+    lsmeans DrugDose*Disease / slice=Disease;
+run;
+/* Quit PROC GLM */
+quit;
+
+/* Remove title from output */
+title;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st103s01-results.html">Result</a>
+
+### Multiple Regression {-}
+
+```{eval=FALSE, class='SAS'}
+/*st103d03.sas*/ 
+/* Part A: Creating a Simple Linear Regression Model */
+/* Turn graphics on for this part */
+ods graphics on;
+
+/* Use PROC REG to create a simple linear regression model */
+proc reg data=STAT1.ameshousing3 ;
+    /* Use Basement_Area and Lot_Area to predict SalePrice */
+    model SalePrice=Basement_Area Lot_Area;
+    /* Add a title to the output */
+    title "Model with Basement Area and Lot Area";
+run;
+/* Quit PROC REG */
+quit;
+
+/* Part B: Creating a General Linear Model with Contour Plot */
+/* Use PROC GLM to create a general linear model with a contour plot */
+proc glm data=STAT1.ameshousing3 
+         plots(only)=(contourfit);
+    /* Use Basement_Area and Lot_Area to predict SalePrice */
+    model SalePrice=Basement_Area Lot_Area;
+    /* Store the results of the model */
+    store out=multiple;
+    /* Add a title to the output */
+    title "Model with Basement Area and Gross Living Area";
+run;
+/* Quit PROC GLM */
+quit;
+
+/* Part C: Creating an Effect Plot with Sliced Fit */
+/* Use PROC PLM to create an effect plot with a sliced fit */
+proc plm restore=multiple plots=all;
+    /* Plot the contour of the fitted surface */
+    effectplot contour (y=Basement_Area x=Lot_Area);
+    /* Plot the sliced fit with slices of Basement_Area at 250 to 1000 by 250 */
+    effectplot slicefit(x=Lot_Area sliceby=Basement_Area=250 to 1000 by 250);
+run; 
+/* Remove title from output */
+title;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st103d03-results.html">Result</a>
+
+```{eval=FALSE, class='SAS'}
+/*st103s02.sas*/  /*Part A*/
+/* Turn off graphics output */
+ods graphics off;
+/* Run simple linear regression using all 12 predictors */
+proc reg data=STAT1.BodyFat2;
+    model PctBodyFat2=Age Weight Height
+          Neck Chest Abdomen Hip Thigh
+          Knee Ankle Biceps Forearm Wrist;
+    /* Give title to the output */
+    title 'Regression of PctBodyFat2 on All '
+          'Predictors';
+run;
+/* End the regression procedure */
+quit;
+
+/*st103s02.sas*/  /*Part B*/
+/* Run simple linear regression using all predictors except Knee */
+proc reg data=STAT1.BodyFat2;
+    model PctBodyFat2=Age Weight Height
+          Neck Chest Abdomen Hip Thigh
+               Ankle Biceps Forearm Wrist;
+    /* Give title to the output */
+    title 'Regression of PctBodyFat2 on All '
+          'Predictors, Minus Knee';
+run;
+/* End the regression procedure */
+quit;
+
+/*st103s02.sas*/  /*Part C*/
+/* Run simple linear regression using all predictors except Knee and Chest */
+proc reg data=STAT1.BodyFat2;
+    model PctBodyFat2=Age Weight Height
+          Neck       Abdomen Hip Thigh
+               Ankle Biceps Forearm Wrist;
+    /* Give title to the output */
+    title 'Regression of PctBodyFat2 on All '
+          'Predictors, Minus Knee, Chest';
+run;
+/* End the regression procedure */
+quit;
+
+```
+
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st103s02-results.html">Result</a>
