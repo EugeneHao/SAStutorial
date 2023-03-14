@@ -3,7 +3,7 @@
     "path": "~/Documents/GitHub/SAStutorial/Statistics_with_SAS.Rmd",
     "project_path": "Statistics_with_SAS.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "3974848475",
     "contents": "",
     "dirty": false,
     "created": 1678152475548.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "408,24",
-        "scrollLine": "402"
+        "cursorPosition": "485,124",
+        "scrollLine": "468"
     },
     "folds": "",
-    "lastKnownWriteTime": 1678328891,
+    "lastKnownWriteTime": 1678762098,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1678328891858,
+    "last_content_update": 1678762098113,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -563,6 +563,70 @@ run;
 </code></pre>
 </div>
 </div>
+<div id="week-3" class="section level2 unnumbered">
+<h2 class="unnumbered">Week 3</h2>
+<div id="two-way-anova-with-interactions" class="section level3">
+<h3>Two-way ANOVA with interactions</h3>
+<pre class="SAS" eval="FALSE,"><code>/*st103d01.sas*/  /*Part A*/
+/* Set graphics off initially */
+ods graphics off;
+
+/* Part A: Descriptive Analysis */
+/* Use PROC MEANS to calculate selected descriptive statistics */
+proc means data=STAT1.ameshousing3
+           mean var std nway;
+    /* Group data by Season_Sold and Heating_QC variables */
+    class Season_Sold Heating_QC;
+    /* Calculate statistics for SalePrice variable */
+    var SalePrice;
+    /* Format Season_Sold variable */
+    format Season_Sold Season.;
+    /* Specify title for output */
+    title &#39;Selected Descriptive Statistics&#39;;
+run;
+
+/* Part B: Graphical Analysis */
+/* Use PROC SGPLOT to create a line plot of SalePrice by Season_Sold and Heating_QC */
+proc sgplot data=STAT1.ameshousing3;
+    /* Group data by Season_Sold and Heating_QC variables */
+    vline Season_Sold / group=Heating_QC 
+                        /* Calculate mean SalePrice for each group */
+                        stat=mean 
+                        /* Use SalePrice as the response variable */
+                        response=SalePrice 
+                        /* Add markers to the plot */
+                        markers;
+    /* Format Season_Sold variable */
+    format Season_Sold season.;
+run; 
+
+/* Part C: Inferential Analysis */
+/* Set graphics on for this part */
+ods graphics on;
+
+/* Use PROC GLM to create a linear regression model */
+proc glm data=STAT1.ameshousing3 order=internal;
+    /* Group data by Season_Sold and Heating_QC variables */
+    class Season_Sold Heating_QC;
+    /* Use Heating_QC and Season_Sold variables to predict SalePrice */
+    model SalePrice = Heating_QC Season_Sold;
+    /* Calculate least squares means for Season_Sold variable */
+    lsmeans Season_Sold / diff adjust=tukey;
+    /* Format Season_Sold variable */
+    format Season_Sold season.;
+    /* Specify title for output */
+    title &quot;Model with Heating Quality and Season as Predictors&quot;;
+run;
+
+/* Quit PROC GLM */
+quit;
+
+/* Remove title from output */
+title;
+</code></pre>
+<p><a href="%22https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st103d01-results.html%22">SAS Output</a></p>
+</div>
+</div>
 
 
 
