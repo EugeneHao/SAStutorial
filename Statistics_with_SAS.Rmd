@@ -1,0 +1,420 @@
+---
+title: "Notes for Statistics With SAS"
+author: "Hao Sun"
+output: 
+  html_document:
+    includes: 
+      in_header: header.html
+    css: "styles/agate.css"
+---
+
+
+## Week 1 {-}
+
+### One-sample T Test {-}
+
+```{eval=FALSE, class='SAS'}
+/* This SAS program conducts a one-sample t-test to test whether 
+the mean sale price of houses in the STAT1.ameshousing3 dataset is equal to $135,000. */
+
+/* The following line enables the use of ODS graphics, 
+which allows SAS to generate graphical output. */
+
+ods graphics;
+
+proc ttest data=STAT1.ameshousing3 
+    plots(shownull)=interval  
+/* This line specifies that the confidence interval should be plotted. 
+The "shownull" option specifies that the null hypothesis value (in this case, 
+$135,000) should be shown on the plot. */
+    H0=135000;  
+/* This line specifies the null hypothesis value for the mean sale price. */
+    var SalePrice;  
+/* This line specifies that the variable SalePrice should be used for the t-test. */
+    title "One-Sample t-test testing whether mean SalePrice=$135,000";  
+/* This line adds a title to the output, describing the t-test being conducted. */
+run;
+
+/* This line clears the title that was added to the output. */
+title;
+
+```
+
+Example 2: 
+
+```{eval=FALSE, class='SAS'}
+/* This is a SAS program that analyzes the distribution of 
+two interval variables (BodyTemp and HeartRate) using a 
+histogram with normal and kernel density plots. */
+
+/* Define a macro variable named interval that contains 
+the names of the interval variables. */
+%let interval=BodyTemp HeartRate;
+
+/* Turn on ODS graphics for generating graphical output, 
+and specify that only histograms will be displayed. */
+ods graphics;
+ods select histogram;
+
+/* Use PROC UNIVARIATE to generate a histogram with 
+normal and kernel density plots for the interval variables. */
+proc univariate data=STAT1.NormTemp noprint;
+    var &interval; 
+/* Analyze the interval variables specified in the macro variable interval. */
+    histogram &interval / normal kernel; 
+/* Generate a histogram with normal and kernel density plots for the interval variables. */
+    inset n mean std / position=ne; 
+/* Include the sample size, mean, and standard deviation in the upper right corner of the graph. */
+    title "Interval Variable Distribution Analysis"; 
+/* Specify a title for the graph. */
+run;
+
+/* Reset the title to blank. */
+title;
+
+/* This part of the SAS program tests whether the mean body 
+temperature is significantly different from the conventional value of 98.6°F. */
+
+/* Use PROC TTEST to perform a one-sample t-test for the BodyTemp variable. */
+proc ttest data=STAT1.NormTemp h0=98.6 plots(only shownull)=interval;
+    var BodyTemp; /* Analyze the BodyTemp variable. */
+    title 'Testing Whether the Mean Body Temperature = 98.6'; /* Specify a title for the output. */
+run;
+
+/* Reset the title to blank. */
+title;
+```
+
+
+### Two-samples T Test {-}
+
+```{eval=FALSE, class='SAS'}
+/* st101d03.sas */
+
+/* This is a SAS program that performs a two-sample t-test to 
+compare the mean sale prices of houses with and without masonry veneer. */
+
+/* Turn on ODS graphics for generating graphical output. */
+ods graphics;
+
+/* Use PROC TTEST to perform the two-sample t-test. */
+proc ttest data=STAT1.ameshousing3 plots(shownull)=interval;
+/* Specify the dataset to be used and display a confidence interval plot for the null hypothesis value. */
+    class Masonry_Veneer; 
+/* Define the categorical variable Masonry_Veneer as a CLASS variable. */
+    var SalePrice; 
+/* Define the variable SalePrice as the continuous variable of interest. */
+    format Masonry_Veneer $NoYes.; 
+/* Specify the format of the values of the Masonry_Veneer variable as "No" or "Yes". */
+    title "Two-Sample t-test Comparing Masonry Veneer, No vs. Yes"; 
+/* Specify a title for the output. */
+run;
+
+/* Reset the title to blank. */
+title;
+
+```
+
+The code above performs a two-sample t-test to compare the mean sale prices of houses with and without masonry veneer. The `plots(shownull)=interval` option displays a confidence interval plot for the null hypothesis value. The `class` statement specifies the categorical variable `Masonry_Veneer` as a CLASS variable. The `var` statement specifies "SalePrice" as the continuous variable of interest. The `format` statement specifies that the values of "Masonry_Veneer" are either "No" or "Yes". The `title` statement adds a title to the output. The "run" statement executes the PROC TTEST procedure. The final `title` statement resets the title to blank.
+
+## Week 2 {-}
+
+### Box plot and Scatter plot {-}
+
+```{eval=FALSE, class='SAS'}
+/*st102d01.sas*/  /*Part A*/
+/*The PROC SGSCATTER procedure is used to create a scatter plot matrix that displays the relationships among variables.*/
+/*In this case, the plot shows the association between SalePrice and Gr_Liv_Area with a regression line. */
+proc sgscatter data=STAT1.ameshousing3;
+    plot SalePrice*Gr_Liv_Area / reg;
+    title "Associations of Above Grade Living Area with Sale Price";
+run;
+
+/*st102d01.sas*/  /*Part B*/
+/*The %LET statement creates a macro variable named "interval" and assigns it a list of variables. */
+/*The macro variable &interval is used in PROC SGSCATTER to plot scatter plots for each of the variables in the list against SalePrice. */
+/*The option nolabel is used to remove the variable names from the plot. */
+/*The title statement gives the plot a descriptive title. */
+%let interval=Gr_Liv_Area Basement_Area Garage_Area Deck_Porch_Area 
+         Lot_Area Age_Sold Bedroom_AbvGr Total_Bathroom;
+
+/*PROC SGSCATTER is used to explore relationships among continuous variables*/
+/*using scatter plots*/
+options nolabel;
+proc sgscatter data=STAT1.ameshousing3;
+    plot SalePrice*(&interval) / reg;
+    title "Associations of Interval Variables with Sale Price";
+run;
+
+/*st102d01.sas*/  /*Part C*/
+/*The PROC SGPLOT procedure is used to create a vertical box plot that displays the median, quartiles, and extreme values of SalePrice for two categories of Central_Air: Y and N. */
+/*The connect=mean option is used to connect the means of the two groups with a line. */
+proc sgplot data=STAT1.ameshousing3;
+    vbox SalePrice / category=Central_Air 
+                     connect=mean;
+    title "Sale Price Differences across Central Air";
+run;
+
+/*st102d01.sas*/  /*Part D*/
+/*The %LET statement creates a macro variable named "categorical" and assigns it a list of variables. */
+/*The macro named "box" is defined using the %MACRO and %MEND statements. */
+/*The macro uses PROC SGPLOT to create a vertical box plot for each categorical variable in the list, with SalePrice on the y-axis and the categorical variable on the x-axis. */
+/*The title statement gives each plot a descriptive title. */
+%let categorical=House_Style2 Overall_Qual2 Overall_Cond2 Fireplaces 
+         Season_Sold Garage_Type_2 Foundation_2 Heating_QC 
+         Masonry_Veneer Lot_Shape_2 Central_Air;
+
+/*
+      Macro Usage:
+      %box(DSN = <data set name>,
+           Response = <response variable name>,
+           CharVar = <bar chart grouping variable list>)
+*/
+%macro box(dsn      = ,
+           response = ,
+           Charvar  = );
+%let i = 1 ;
+%do %while(%scan(&charvar,&i,%str( )) ^= %str()) ;
+    %let var = %scan(&charvar,&i,%str( ));
+    proc sgplot data=&dsn;
+        vbox &response / category=&var 
+                         grouporder=ascending 
+                         connect=mean;
+        title "&response across Levels of &var";
+    run;
+    %let i = %eval(&i + 1 ) ;
+%end ;
+%mend box;
+
+%box(dsn      = STAT1.ameshousing3,
+     response = SalePrice,
+     charvar  = &categorical);
+title;
+options label;
+
+```
+
+### Generalized linear model {-}
+
+```{eval=FALSE, class='SAS'}
+/* st102d02.sas */
+
+/* Enable ODS graphics output */
+ods graphics;
+
+/* Fit a general linear model using PROC GLM */
+proc glm data=STAT1.ameshousing3 plots=diagnostics;
+    /* Specify the categorical variable */
+    class Heating_QC;
+    /* Specify the dependent and independent variables */
+    model SalePrice=Heating_QC;
+    /* Calculate the means of SalePrice for each level of Heating_QC */
+    means Heating_QC / hovtest=levene;
+    /* Specify the format of the categorical variable */
+    format Heating_QC $Heating_QC.;
+    /* Assign a title to the output */
+    title "One-Way ANOVA with Heating Quality as Predictor";
+/* End of PROC GLM */
+run;
+quit;
+
+/* Clear the title from the output */
+title;
+
+```
+
+Example 2: 
+
+```{eval=FALSE, class='SAS'}
+/* st102s01.sas */
+
+/* Part A: Descriptive Statistics and Box Plot using PROC MEANS and PROC SGPLOT */
+/* Calculate the descriptive statistics of BulbWt by Fertilizer using PROC MEANS */
+proc means data=STAT1.Garlic;
+    var BulbWt;
+    class Fertilizer;
+    title 'Descriptive Statistics of BulbWt by Fertilizer';
+run;
+
+/* Generate a box plot of BulbWt for each level of Fertilizer using PROC SGPLOT */
+proc sgplot data=STAT1.Garlic;
+    vbox BulbWt / category=Fertilizer
+                 connect=mean;
+    title "Bulb Weight Differences across Fertilizers";
+run;
+
+/* Clear the title from the output */
+title;
+
+/* Part B: One-Way ANOVA using PROC GLM */
+/* Enable ODS graphics output */
+ods graphics;
+
+/* Fit a general linear model using PROC GLM */
+proc glm data=STAT1.Garlic plots=diagnostics;
+    /* Specify the categorical variable */
+    class Fertilizer;
+    /* Specify the dependent and independent variables */
+    model BulbWt=Fertilizer;
+    /* Calculate the means of BulbWt for each level of Fertilizer */
+    means Fertilizer / hovtest=levene;
+    /* Assign a title to the output */
+    title "One-Way ANOVA with Fertilizer as Predictor";
+/* End of PROC GLM */
+run;
+quit;
+
+/* Clear the title from the output */
+title;
+
+```
+
+
+### Multiple Comparison {-}
+```{eval=FALSE, class='SAS'}
+/*st102d03.sas*/
+/*The ODS GRAPHICS statement is used to enable graphics output for the procedure*/
+ods graphics;
+
+/*ODS SELECT statement is used to select specific output tables and graphs*/
+ods select lsmeans diff diffplot controlplot;
+
+/*PROC GLM is used to perform an analysis of variance (ANOVA) to test the null hypothesis*/
+/*that the means of the dependent variable (SalePrice) are equal for different levels of*/
+/*the independent variable (Heating_QC)*/
+proc glm data=STAT1.ameshousing3
+         plots(only)=(diffplot(center) controlplot);
+    class Heating_QC;
+    model SalePrice=Heating_QC;
+    
+    /*The LSMEANS statement is used to calculate Least Squares Means (LSMEANS)*/
+    /*and multiple comparisons for Heating_QC*/
+    lsmeans Heating_QC / pdiff=all
+                         adjust=tukey;
+    lsmeans Heating_QC / pdiff=control('Average/Typical')
+                         adjust=dunnett;
+    
+    /*The FORMAT statement is used to specify a format for the variable Heating_QC*/
+    format Heating_QC $Heating_QC.;
+    
+    title "Post-Hoc Analysis of ANOVA - Heating Quality as Predictor";
+run;
+quit;
+
+title;
+
+```
+
+### Pearson Correlation {-}
+
+```{eval=FALSE, class='SAS'}
+/* 
+This SAS code is divided into two parts A and B. 
+Part A uses PROC CORR to calculate correlations and create scatter plots between a set of predictor variables and SalePrice variable. 
+Part B also uses PROC CORR to calculate correlations between the same set of predictor variables, but this time it creates a scatter plot matrix. 
+*/
+
+/* Part A */
+/* Define a macro variable named "interval" which is a list of predictor variables */
+%let interval=Gr_Liv_Area Basement_Area Garage_Area Deck_Porch_Area Lot_Area Age_Sold Bedroom_AbvGr Total_Bathroom;
+
+/* Activate ODS graphics and reset all previous graphics settings */
+ods graphics / reset=all imagemap;
+
+/* Use PROC CORR to calculate correlations between the predictor variables in "interval" and the SalePrice variable, and create scatter plots */
+proc corr data=STAT1.AmesHousing3 rank plots(only)=scatter(nvar=all ellipse=none); 
+    var &interval; /* list of variables to correlate */
+    with SalePrice; /* variable to correlate with */
+    id PID; /* identification variable */
+    title "Correlations and Scatter Plots with SalePrice"; /* title of the output */
+run;
+title;
+
+/* Part B */
+/* Deactivate ODS graphics */
+ods graphics off;
+
+/* Use PROC CORR to calculate correlations between the predictor variables in "interval" and create a scatter plot matrix. */
+proc corr data=STAT1.AmesHousing3 nosimple best=3; 
+    var &interval; /* list of variables to correlate */
+    title "Correlations and Scatter Plot Matrix of Predictors"; /* title of the output */
+run;
+title;
+
+```
+
+Example 2: 
+
+```{eval=FALSE, class='SAS'}
+/*
+This SAS code is divided into two parts A and B. 
+Part A uses PROC CORR to calculate correlations and create scatter plots between a set of predictor variables and the PctBodyFat2 variable. 
+Part B also uses PROC CORR to calculate correlations between the same set of predictor variables, but this time it selects only the highest correlations and formats them for easy interpretation.
+*/
+
+/* Part A */
+/* Define a macro variable named "interval" which is a list of predictor variables */
+%let interval=Age Weight Height Neck Chest Abdomen Hip Thigh Knee Ankle Biceps Forearm Wrist;
+
+/* Activate ODS graphics and reset all previous graphics settings */
+ods graphics / reset=all imagemap;
+
+/* Use PROC CORR to calculate correlations between the predictor variables in "interval" and the PctBodyFat2 variable, and create scatter plots */
+proc corr data=STAT1.BodyFat2 plots(only)=scatter(nvar=all ellipse=none);
+    var &interval; /* list of variables to correlate */
+    with PctBodyFat2; /* variable to correlate with */
+    id Case; /* identification variable */
+    title "Correlations and Scatter Plots"; /* title of the output */
+run;
+
+/* Define a new macro variable "interval" which is a shorter list of predictor variables */
+%let interval=Biceps Forearm Wrist;
+
+/* Activate ODS graphics and select only scatterplot in the output */
+ods graphics / reset=all imagemap;
+ods select scatterplot;
+
+/* Use PROC CORR to calculate correlations between the predictor variables in "interval" and the PctBodyFat2 variable, and create scatter plots */
+proc corr data=STAT1.BodyFat2 plots(only)=scatter(nvar=all ellipse=none);
+    var &interval; /* list of variables to correlate */
+    with PctBodyFat2; /* variable to correlate with */
+    id Case; /* identification variable */
+    title "Correlations and Scatter Plots"; /* title of the output */
+run;
+
+/* Part B */
+/* Deactivate ODS graphics */
+ods graphics off;
+
+/* Define a macro variable named "interval" which is the same list of predictor variables used in Part A */
+%let interval=Age Weight Height Neck Chest Abdomen Hip Thigh Knee Ankle Biceps Forearm Wrist;
+
+/* Use PROC CORR to calculate correlations between the predictor variables in "interval" and store the results in a dataset named "pearson" */
+proc corr data=STAT1.BodyFat2 nosimple best=5 out=pearson;
+    var &interval; /* list of variables to correlate */
+    title "Correlations of Predictors"; /* title of the output */
+run;
+
+/* Define a macro variable named "big" which represents the cutoff value for high correlations */
+%let big=0.7;
+
+/* Define a format named "correlations" to apply to the correlation values */
+proc format;
+    picture correlations &big -< 1 = '009.99' (prefix="*") /* prefix "*" to indicate high correlation */
+                            -1 <- -&big = '009.99' (prefix="*")
+                            -&big <-< &big = '009.99';
+run;
+
+/* Print the correlation values in the "pearson" dataset and apply the "correlations" format to the relevant columns */
+proc print data=pearson;
+    var _NAME_ &interval; /* list of variables to print */
+    where _type_="CORR"; /* select only the correlation values */
+    format &interval correlations.; /* apply the "correlations" format */
+run;
+
+/* Define a macro variable named "big" which represents the cutoff value for high correlations */
+%let big=0.7;
+
+/* Create a new dataset named "big
+
+```
