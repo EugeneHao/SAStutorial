@@ -1,0 +1,221 @@
+---
+title: "Statistics With SAS - Week 4"
+author: "Hao Sun"
+output: 
+  html_document:
+    includes: 
+      in_header: header.html
+    css: "styles/agate.css"
+---
+
+## Week 4 {-}
+
+### Stepwise Selection {-}
+
+```{eval=FALSE, class='SAS'}
+/*st104d01.sas*/
+  
+%let interval=Gr_Liv_Area Basement_Area Garage_Area Deck_Porch_Area Lot_Area Age_Sold Bedroom_AbvGr Total_Bathroom;
+/* Define a macro variable 'interval' to contain a list of predictor variables to be used in the analysis */
+
+ods graphics on;
+/* Turn on ODS graphics */
+
+proc glmselect data=STAT1.ameshousing3 plots=all;
+/* Start PROC GLMSELECT and specify the input data set 'STAT1.ameshousing3' and that all plots should be generated */
+
+    STEPWISE: model SalePrice = &interval / selection=stepwise details=steps select=SL slstay=0.05 slentry=0.05;
+    /* Perform stepwise regression using the 'SalePrice' variable as the response variable and the list of predictor variables in 'interval'.
+     'selection=stepwise' specifies that stepwise regression is being used.
+     'details=steps' requests detailed output of each step of the stepwise regression process.
+     'select=SL' specifies that the significance level criterion for variable entry and removal is the SL criterion.
+     'slstay=0.05' specifies that a variable must have a p-value less than or equal to 0.05 to remain in the model.
+     'slentry=0.05' specifies that a variable must have a p-value less than or equal to 0.05 to be entered into the model. */
+
+    title "Stepwise Model Selection for SalePrice - SL 0.05";
+    /* Add a title to the output */
+
+run;
+/* End PROC GLMSELECT */
+
+/*
+Optional Code that will execute forward and backward selection
+Each with slentry and slstay = 0.05.
+
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    FORWARD: model SalePrice = &interval / selection=forward details=steps select=SL slentry=0.05;
+    title "Forward Model Selection for SalePrice - SL 0.05";
+run;
+
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    BACKWARD: model SalePrice = &interval / selection=backward details=steps select=SL slstay=0.05;
+    title "Backward Model Selection for SalePrice - SL 0.05";
+run;
+*/
+/* This is optional code that performs forward and backward selection using similar options as in the stepwise regression, 
+   but it is commented out. The 'forward' and 'backward' keywords indicate which type of selection is being performed. */
+
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st104d01-results.html">Result</a>
+
+
+```{eval=FALSE, class='SAS'}
+/*st104s01.sas*/
+
+/* Part A */
+/* Turn on ODS graphics */
+ods graphics on;
+/* Start PROC GLMSELECT and specify the input data set 'STAT1.bodyfat2' and that all plots should be generated */
+proc glmselect data=STAT1.bodyfat2 plots=all;
+    /* Perform stepwise regression using the 'PctBodyFat2' variable as the response variable and the list of predictor variables.
+     'selection=stepwise' specifies that stepwise regression is being used.
+     'select=SL' specifies that the significance level criterion for variable entry and removal is the SL criterion. */
+    STEPWISESL: model PctBodyFat2 = Age Weight Height Neck Chest Abdomen Hip Thigh Knee Ankle Biceps Forearm Wrist / SELECTION=STEPWISE SELECT=SL;
+    /* Add a title to the output */
+    title 'SL STEPWISE Selection with PctBodyFat2';
+/* End PROC GLMSELECT */
+run;
+
+/* Part B */
+/* Start PROC GLMSELECT and specify the input data set 'STAT1.bodyfat2' and that all plots should be generated */
+proc glmselect data=STAT1.bodyfat2 plots=all;
+    /* Perform forward selection using the 'PctBodyFat2' variable as the response variable and the list of predictor variables.
+     'selection=forward' specifies that forward selection is being used.
+     'select=SL' specifies that the significance level criterion for variable entry and removal is the SL criterion. */
+    FORWARDSL: model PctBodyFat2 = Age Weight Height Neck Chest Abdomen Hip Thigh Knee Ankle Biceps Forearm Wrist / SELECTION=FORWARD SELECT=SL;
+    /* Add a title to the output */
+    title 'SL FORWARD Selection with PctBodyFat2';
+/* End PROC GLMSELECT */
+run;
+
+/* Part C */
+/* Start PROC GLMSELECT and specify the input data set 'STAT1.bodyfat2' and that all plots should be generated */
+proc glmselect data=STAT1.bodyfat2 plots=all;
+    /* Perform forward selection using the 'PctBodyFat2' variable as the response variable and the list of predictor variables.
+     'selection=forward' specifies that forward selection is being used.
+     'select=SL' specifies that the significance level criterion for variable entry and removal is the SL criterion.
+     'slentry=0.05' specifies that a variable must have a p-value less than or equal to 0.05 to be entered into the model. */
+    FORWARDSL: model PctBodyFat2 = Age Weight Height Neck Chest Abdomen Hip Thigh Knee Ankle Biceps Forearm Wrist / SELECTION=FORWARD SELECT=SL SLENTRY=0.05;
+    /* Add a title to the output */
+    title 'SL FORWARD (0.05) Selection with PctBodyFat2';
+/* End PROC GLMSELECT */
+run;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st104s01-results.html">Result</a>
+
+### Information Criteria {-}
+
+```{eval=FALSE, class='SAS'}
+/*st104s02.sas*/
+  
+/* Set the list of variables to use in the model */
+%let interval=Gr_Liv_Area Basement_Area Garage_Area Deck_Porch_Area Lot_Area Age_Sold Bedroom_AbvGr Total_Bathroom;
+
+/* Turn on ODS graphics */
+ods graphics on;
+
+/* Perform stepwise model selection using AIC as the selection criterion */
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    /* Assign a name to this stepwise selection process (optional) */
+    STEPWISEAIC: 
+    /* Specify the response variable and the list of predictor variables */
+    model SalePrice = &interval / selection=stepwise details=steps select=AIC;
+    /* Assign a title to the output */
+    title "Stepwise Model Selection for SalePrice - AIC";
+run;
+
+/* Perform stepwise model selection using BIC as the selection criterion */
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    /* Assign a name to this stepwise selection process (optional) */
+    STEPWISEBIC: 
+    /* Specify the response variable and the list of predictor variables */
+    model SalePrice = &interval / selection=stepwise details=steps select=BIC;
+    /* Assign a title to the output */
+    title "Stepwise Model Selection for SalePrice - BIC";
+run;
+
+/* Perform stepwise model selection using AICC as the selection criterion */
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    /* Assign a name to this stepwise selection process (optional) */
+    STEPWISEAICC: 
+    /* Specify the response variable and the list of predictor variables */
+    model SalePrice = &interval / selection=stepwise details=steps select=AICC;
+    /* Assign a title to the output */
+    title "Stepwise Model Selection for SalePrice - AICC";
+run;
+
+/* Perform stepwise model selection using SBC as the selection criterion */
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    /* Assign a name to this stepwise selection process (optional) */
+    STEPWISESBC: 
+    /* Specify the response variable and the list of predictor variables */
+    model SalePrice = &interval / selection=stepwise details=steps select=SBC;
+    /* Assign a title to the output */
+    title "Stepwise Model Selection for SalePrice - SBC";
+run;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st104d02-results.html">Result</a>
+
+```{eval=FALSE, class='SAS'}
+/*st104d02.sas*/
+
+/* Define a macro variable that contains the list of predictor variables */
+%let interval=Gr_Liv_Area Basement_Area Garage_Area Deck_Porch_Area 
+         Lot_Area Age_Sold Bedroom_AbvGr Total_Bathroom ;
+
+/* Enable ODS graphics */
+ods graphics on;
+
+/* Run PROC GLMSELECT with stepwise selection and AIC as the selection criterion */
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    STEPWISEAIC: model SalePrice = &interval / selection=stepwise details=steps select=AIC;
+    title "Stepwise Model Selection for SalePrice - AIC";
+run;
+
+/* Run PROC GLMSELECT with stepwise selection and BIC as the selection criterion */
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    STEPWISEBIC: model SalePrice = &interval / selection=stepwise details=steps select=BIC;
+    title "Stepwise Model Selection for SalePrice - BIC";
+run;
+
+/* Run PROC GLMSELECT with stepwise selection and AICC as the selection criterion */
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    STEPWISEAICC: model SalePrice = &interval / selection=stepwise details=steps select=AICC;
+    title "Stepwise Model Selection for SalePrice - AICC";
+run;
+
+/* Run PROC GLMSELECT with stepwise selection and SBC as the selection criterion */
+proc glmselect data=STAT1.ameshousing3 plots=all;
+    STEPWISESBC: model SalePrice = &interval / selection=stepwise details=steps select=SBC;
+    title "Stepwise Model Selection for SalePrice - SBC";
+run;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st104s02-results.html">Result</a>
+
+```{eval=FALSE, class='SAS'}
+/* st104s03.sas */
+/* Part A: */
+/* Turning on imagemap for better visualization */
+ods graphics / imagemap=on;
+
+/* Using PROC REG for regression analysis with model selection based on Mallows Cp */
+proc reg data=STAT1.BodyFat2 plots(only)=(cp);
+   model PctBodyFat2=Age Weight Height
+         Neck Chest Abdomen Hip Thigh
+         Knee Ankle Biceps Forearm Wrist
+         / selection=cp best=60; /* Cp-based model selection with 60 as the maximum number of variables */
+   title "Using Mallows Cp for Model Selection"; /* Setting the title for the output */
+run;
+quit;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st104s03-results.html">Result</a>
