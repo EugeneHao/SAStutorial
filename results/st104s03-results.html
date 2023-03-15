@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html class="ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>Results: st104s03.sas</title>
+<style>
+/*<![CDATA[*/
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c section > table, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c section > pre, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c div > table,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c div > pre, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c article > table, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c article > pre,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j section > table, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j section > pre, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j div > table,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j div > pre, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j article > table, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j article > pre,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c p.note, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c p.warning, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c p.error, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c p.fatal,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j p.note, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j p.warning, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j p.error, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j p.fatal,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.c > table.layoutcontainer, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.l table, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.l pre, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.l p.note,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.l p.warning, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.l p.error, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.l p.fatal { margin-left: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.c table, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.c pre, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.c p.note,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.c p.warning, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.c p.error, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.r table, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.r pre, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.r p.note,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.r table, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.r pre, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.r p.note,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.r p.warning, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.r p.error, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion.r p.fatal { margin-right: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 article, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 aside, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 details, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 figcaption, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 figure, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 footer, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 header, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 hgroup, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 nav, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 section { display: block }
+html.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 { font-size: 100% }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 ul, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 dd { margin: 0 0 0 40px }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 nav ul, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 img { border: 0; vertical-align: middle }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 svg:not(:root) { overflow: hidden }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 figure { margin: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 table { border-collapse: collapse; border-spacing: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 p { margin-top: 0; text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 h1.heading1 { text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 h2.heading2 { text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 h3.heading3 { text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 h4.heading4 { text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 h5.heading5 { text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 h6.heading6 { text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 span { text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 table { margin-bottom: 1em }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 td, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 td[class$="fixed"], .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 th[class$="fixed"] { white-space: pre }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 section, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 article { padding-top: 1px; padding-bottom: 8px }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .stacked-value { text-align: left; display: block }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .stacked-cell > .stacked-value, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 td.data > td.data, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 th.data > td.data, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 th.data > th.data, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 td.data > th.data, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 th.header > th.header { border: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .stacked-cell > div.data { border-width: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > p { margin: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .batch { display: table }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .toc { display: none }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .proc_note_group, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .proc_title_group { margin-bottom: 1em }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 p.proctitle { margin: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 p.note, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 p.warning, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 p.error, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 p.fatal { display: table }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .notebanner, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .warnbanner, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .errorbanner, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .fatalbanner,
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .notecontent, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .warncontent, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .errorcontent, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .notebanner, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .warnbanner, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .errorbanner, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .fatalbanner { padding-right: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body > div > ol li { text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .c { text-align: center }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .r { text-align: right }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .l { text-align: left }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .j { text-align: justify }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .d { text-align: right }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .b { vertical-align: bottom }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .m { vertical-align: middle }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .t { vertical-align: top }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 a:active { color: #800080 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .batch > tbody, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .batch > thead, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .batch { border: hidden; }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bylinecontainer > col, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bylinecontainer > colgroup > col, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bylinecontainer > colgroup, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bylinecontainer > tr, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bylinecontainer > * > tr, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bylinecontainer > thead, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bylinecontainer > tbody, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bylinecontainer > tfoot { border: none; }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .cell, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .contentfolder, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .contentproclabel, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .data, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .graph > tbody, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .graph > thead, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .graph { border: hidden; }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .heading1, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .heading2, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .heading3, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .heading4, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .heading5, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .indexaction, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutcontainer, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 a:link { color: #0000ff }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list3, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list4, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list5, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list6, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list7, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list8, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem3, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem4, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem5, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem6, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem7, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem8, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .output > tbody, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .output > thead, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .output { border: hidden; }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .pagesproclabel, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .parskip > col, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .parskip > colgroup > col, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .parskip > colgroup, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .parskip > tr, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .parskip > * > tr, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .parskip > thead, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .parskip > tbody, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .parskip > tfoot { border: none; }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter10, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter2, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter3, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter4, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter5, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter6, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter7, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter8, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle10, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle2, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle3, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle4, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle5, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle6, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle7, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle8, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > col, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > colgroup > col, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > colgroup, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > tr, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > * > tr, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > thead, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > tbody, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer > tfoot { border: none; }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .table > col, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .table > tr, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .table { border: hidden; }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titleandnotecontainer > col, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titleandnotecontainer > colgroup > col, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titleandnotecontainer > colgroup, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titleandnotecontainer > tr, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titleandnotecontainer > * > tr, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titleandnotecontainer > thead, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titleandnotecontainer > tbody, .ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titleandnotecontainer > tfoot { border: none; }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 a:visited { color: #800080 }
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_27c7aaf0-4414-433c-aa44-45905ba4b8a9 .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="body">
+<div id="div_27c7aaf0-4414-433c-aa44-45905ba4b8a9" class="c body">
+<h1 class="body toc">Results: st104s03.sas</h1>
+<section data-name="Reg" data-sec-type="proc">
+<div id="IDX" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Using Mallows Cp for Model Selection</span> </p>
+</div>
+<div class="proc_title_group">
+<p class="c proctitle">The REG Procedure</p>
+<p class="c proctitle">Model: MODEL1</p>
+<p class="c proctitle">Dependent Variable: PctBodyFat2</p>
+<p class="c proctitle">&#160;</p>
+<p class="c proctitle">C(p) Selection Method</p>
+</div>
+<h1 class="contentprocname toc">The Reg Procedure</h1>
+<section>
+<h1 class="contentfolder toc">MODEL1</h1>
+<section>
+<h1 class="contentfolder toc">C(p) Selection Method</h1>
+<section>
+<h1 class="contentfolder toc">PctBodyFat2</h1>
+<article aria-label="Number of Observations">
+<h1 class="contentitem toc">Number of Observations</h1>
+<table class="table" style="border-spacing: 0" aria-label="Number of Observations">
+<caption aria-label="Number of Observations"></caption>
+<colgroup><col/><col/></colgroup>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Number of Observations Read</th>
+<td class="r data">252</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Number of Observations Used</th>
+<td class="r data">252</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX1" aria-label="Results">
+<h1 class="contentitem toc">Results</h1>
+<div class="proc_note_group">
+<p class="proctitle"></p>
+</div>
+<table class="table" style="border-spacing: 0" aria-label="Results">
+<caption aria-label="Results"></caption>
+<colgroup><col/><col/><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r b header" scope="col">Model<br/>Index</th>
+<th class="r b header" scope="col">Number in<br/>Model</th>
+<th class="r b header" scope="col">C(p)</th>
+<th class="r b header" scope="col">R-Square</th>
+<th class="b header" scope="col">Variables in Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">5.8653</th>
+<td class="r data">0.7445</td>
+<td class="data">Age Weight Neck Abdomen Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">5.8986</th>
+<td class="r data">0.7466</td>
+<td class="data">Age Weight Neck Abdomen Hip Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">6.4929</th>
+<td class="r data">0.7459</td>
+<td class="data">Age Weight Neck Abdomen Thigh Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">6.7834</th>
+<td class="r data">0.7477</td>
+<td class="data">Age Weight Neck Abdomen Hip Thigh Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">6.9017</th>
+<td class="r data">0.7434</td>
+<td class="data">Age Weight Neck Abdomen Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">7.1778</th>
+<td class="r data">0.7452</td>
+<td class="data">Age Weight Neck Abdomen Thigh Ankle Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7</th>
+<th class="r rowheader" scope="row">6</th>
+<th class="r data">7.1860</th>
+<td class="r data">0.7410</td>
+<td class="data">Age Weight Abdomen Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">7.2729</th>
+<td class="r data">0.7472</td>
+<td class="data">Age Weight Neck Abdomen Hip Thigh Ankle Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9</th>
+<th class="r rowheader" scope="row">6</th>
+<th class="r data">7.4937</th>
+<td class="r data">0.7406</td>
+<td class="data">Age Weight Neck Abdomen Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10</th>
+<th class="r rowheader" scope="row">6</th>
+<th class="r data">7.6018</th>
+<td class="r data">0.7405</td>
+<td class="data">Weight Neck Abdomen Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">7.7067</th>
+<td class="r data">0.7468</td>
+<td class="data">Age Weight Neck Abdomen Thigh Ankle Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">7.7282</th>
+<td class="r data">0.7467</td>
+<td class="data">Age Weight Height Neck Abdomen Hip Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">7.8146</th>
+<td class="r data">0.7445</td>
+<td class="data">Age Weight Height Neck Abdomen Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">7.8246</th>
+<td class="r data">0.7445</td>
+<td class="data">Age Weight Neck Chest Abdomen Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">7.8651</th>
+<td class="r data">0.7445</td>
+<td class="data">Age Weight Neck Abdomen Thigh Knee Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">7.8966</th>
+<td class="r data">0.7466</td>
+<td class="data">Age Weight Neck Abdomen Hip Thigh Knee Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">17</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">7.8986</th>
+<td class="r data">0.7466</td>
+<td class="data">Age Weight Neck Chest Abdomen Hip Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">7.9907</th>
+<td class="r data">0.7443</td>
+<td class="data">Age Weight Neck Abdomen Ankle Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">8.0270</th>
+<td class="r data">0.7443</td>
+<td class="data">Age Height Neck Abdomen Hip Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.0410</th>
+<td class="r data">0.7422</td>
+<td class="data">Age Weight Abdomen Thigh Ankle Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21</th>
+<th class="r rowheader" scope="row">10</th>
+<th class="r data">8.0682</th>
+<td class="r data">0.7485</td>
+<td class="data">Age Weight Neck Abdomen Hip Thigh Ankle Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">22</th>
+<th class="r rowheader" scope="row">5</th>
+<th class="r data">8.0748</th>
+<td class="r data">0.7379</td>
+<td class="data">Weight Neck Abdomen Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">23</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.1580</th>
+<td class="r data">0.7421</td>
+<td class="data">Age Weight Abdomen Hip Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">24</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.3307</th>
+<td class="r data">0.7419</td>
+<td class="data">Age Weight Abdomen Thigh Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">25</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.4087</th>
+<td class="r data">0.7418</td>
+<td class="data">Weight Neck Abdomen Hip Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">26</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">8.4811</th>
+<td class="r data">0.7459</td>
+<td class="data">Age Weight Neck Abdomen Thigh Knee Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">27</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">8.4884</th>
+<td class="r data">0.7459</td>
+<td class="data">Age Weight Neck Chest Abdomen Thigh Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">28</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">8.4908</th>
+<td class="r data">0.7459</td>
+<td class="data">Age Weight Height Neck Abdomen Thigh Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">29</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">8.5203</th>
+<td class="r data">0.7438</td>
+<td class="data">Age Weight Neck Abdomen Knee Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">30</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">8.6753</th>
+<td class="r data">0.7436</td>
+<td class="data">Age Weight Neck Abdomen Hip Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">31</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.6981</th>
+<td class="r data">0.7415</td>
+<td class="data">Age Weight Neck Abdomen Ankle Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">32</th>
+<th class="r rowheader" scope="row">6</th>
+<th class="r data">8.7232</th>
+<td class="r data">0.7393</td>
+<td class="data">Weight Neck Abdomen Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">33</th>
+<th class="r rowheader" scope="row">10</th>
+<th class="r data">8.7260</th>
+<td class="r data">0.7478</td>
+<td class="data">Age Weight Height Neck Abdomen Hip Thigh Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">34</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">8.7555</th>
+<td class="r data">0.7435</td>
+<td class="data">Age Weight Height Neck Abdomen Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">35</th>
+<th class="r rowheader" scope="row">5</th>
+<th class="r data">8.7588</th>
+<td class="r data">0.7372</td>
+<td class="data">Age Weight Abdomen Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">36</th>
+<th class="r rowheader" scope="row">10</th>
+<th class="r data">8.7609</th>
+<td class="r data">0.7478</td>
+<td class="data">Age Weight Neck Abdomen Hip Thigh Knee Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">37</th>
+<th class="r rowheader" scope="row">10</th>
+<th class="r data">8.7705</th>
+<td class="r data">0.7477</td>
+<td class="data">Age Weight Neck Chest Abdomen Hip Thigh Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">38</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">8.8101</th>
+<td class="r data">0.7435</td>
+<td class="data">Age Weight Neck Chest Abdomen Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">39</th>
+<th class="r rowheader" scope="row">4</th>
+<th class="r data">8.8244</th>
+<td class="r data">0.7350</td>
+<td class="data">Weight Abdomen Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">40</th>
+<th class="r rowheader" scope="row">6</th>
+<th class="r data">8.8935</th>
+<td class="r data">0.7392</td>
+<td class="data">Age Weight Abdomen Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">41</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.9037</th>
+<td class="r data">0.7413</td>
+<td class="data">Age Neck Abdomen Hip Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">42</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.9063</th>
+<td class="r data">0.7413</td>
+<td class="data">Weight Neck Abdomen Hip Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">43</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.9368</th>
+<td class="r data">0.7412</td>
+<td class="data">Weight Neck Abdomen Ankle Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">44</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.9476</th>
+<td class="r data">0.7412</td>
+<td class="data">Weight Neck Abdomen Thigh Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">45</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">8.9635</th>
+<td class="r data">0.7433</td>
+<td class="data">Weight Neck Abdomen Hip Thigh Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">46</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">8.9899</th>
+<td class="r data">0.7412</td>
+<td class="data">Age Weight Height Neck Abdomen Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">47</th>
+<th class="r rowheader" scope="row">5</th>
+<th class="r data">9.0000</th>
+<td class="r data">0.7369</td>
+<td class="data">Weight Abdomen Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">48</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">9.0016</th>
+<td class="r data">0.7412</td>
+<td class="data">Weight Neck Abdomen Knee Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">49</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">9.0122</th>
+<td class="r data">0.7433</td>
+<td class="data">Age Weight Abdomen Hip Thigh Ankle Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">50</th>
+<th class="r rowheader" scope="row">8</th>
+<th class="r data">9.0478</th>
+<td class="r data">0.7432</td>
+<td class="data">Age Weight Abdomen Thigh Ankle Biceps Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">51</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">9.0605</th>
+<td class="r data">0.7411</td>
+<td class="data">Age Weight Abdomen Thigh Knee Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">52</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">9.1261</th>
+<td class="r data">0.7453</td>
+<td class="data">Age Weight Neck Chest Abdomen Thigh Ankle Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">53</th>
+<th class="r rowheader" scope="row">10</th>
+<th class="r data">9.1317</th>
+<td class="r data">0.7474</td>
+<td class="data">Age Weight Height Neck Abdomen Hip Thigh Ankle Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">54</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">9.1409</th>
+<td class="r data">0.7410</td>
+<td class="data">Age Weight Neck Abdomen Knee Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">55</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">9.1419</th>
+<td class="r data">0.7452</td>
+<td class="data">Age Weight Height Neck Abdomen Thigh Ankle Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">56</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">9.1543</th>
+<td class="r data">0.7452</td>
+<td class="data">Age Weight Neck Abdomen Thigh Knee Ankle Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">57</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">9.1730</th>
+<td class="r data">0.7410</td>
+<td class="data">Age Weight Height Abdomen Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">58</th>
+<th class="r rowheader" scope="row">7</th>
+<th class="r data">9.1858</th>
+<td class="r data">0.7410</td>
+<td class="data">Age Weight Chest Abdomen Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">59</th>
+<th class="r rowheader" scope="row">9</th>
+<th class="r data">9.2167</th>
+<td class="r data">0.7452</td>
+<td class="data">Age Height Neck Chest Abdomen Hip Thigh Forearm Wrist</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">60</th>
+<th class="r rowheader" scope="row">10</th>
+<th class="r data">9.2646</th>
+<td class="r data">0.7472</td>
+<td class="data">Age Weight Neck Abdomen Hip Thigh Knee Ankle Forearm Wrist</td>
+</tr>
+</tbody>
+</table>
+<div class="proc_note_group">
+<p class="proctitle"></p>
+</div>
+</article>
+<div class="proc_note_group">
+<p class="proctitle"> </p>
+</div>
+<hr class="pagebreak"/>
+<div id="IDX2" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Using Mallows Cp for Model Selection</span> </p>
+</div>
+<div class="proc_title_group">
+<p class="c proctitle">The REG Procedure</p>
+<p class="c proctitle">Model: MODEL1</p>
+<p class="c proctitle">Dependent Variable: PctBodyFat2</p>
+<p class="c proctitle">&#160;</p>
+<p class="c proctitle">C(p) Selection Method</p>
+</div>
+<section>
+<h1 class="contentfolder toc">Criterion Plots</h1>
+<article aria-label="C(p)">
+<h1 class="contentitem toc">C(p)</h1>
+<map id="/saswork/SAS_work0D27000059C9_sasp_cdr01.aws.bms.com/#LN01684" name="/saswork/SAS_work0D27000059C9_sasp_cdr01.aws.bms.com/#LN01684"><Area shape="poly" alt=" C(p) = 8.8244 
+ Number of Parameters = 5 
+ Model = Weight Abdomen Forearm Wrist" title=" C(p) = 8.8244 
+ Number of Parameters = 5 
+ Model = Weight Abdomen Forearm Wrist" coords="80,89,88,89,88,97,80,97,80,89,"/>
+<Area shape="poly" alt=" C(p) = 8.0748 
+ Number of Parameters = 6 
+ Model = Weight Neck Abdomen Forearm Wrist" title=" C(p) = 8.0748 
+ Number of Parameters = 6 
+ Model = Weight Neck Abdomen Forearm Wrist" coords="166,161,174,161,174,169,166,169,166,161,"/>
+<Area shape="poly" alt=" C(p) = 8.0682 
+ Number of Parameters = 11 
+ Model = Age Weight Neck Abdomen Hip Thigh Ankle Biceps Forearm Wrist" title=" C(p) = 8.0682 
+ Number of Parameters = 11 
+ Model = Age Weight Neck Abdomen Hip Thigh Ankle Biceps Forearm Wrist" coords="596,162,604,162,604,170,596,170,596,162,"/>
+<Area shape="poly" alt=" C(p) = 7.186 
+ Number of Parameters = 7 
+ Model = Age Weight Abdomen Thigh Forearm Wrist" title=" C(p) = 7.186 
+ Number of Parameters = 7 
+ Model = Age Weight Abdomen Thigh Forearm Wrist" coords="252,246,260,246,260,254,252,254,252,246,"/>
+<Area shape="poly" alt=" C(p) = 6.7834 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Hip Thigh Biceps Forearm Wrist" title=" C(p) = 6.7834 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Hip Thigh Biceps Forearm Wrist" coords="510,284,518,284,518,292,510,292,510,284,"/>
+<Area shape="poly" alt=" C(p) = 5.8986 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Hip Thigh Forearm Wrist" title=" C(p) = 5.8986 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Hip Thigh Forearm Wrist" coords="424,369,432,369,432,377,424,377,424,369,"/>
+<Area shape="poly" alt=" C(p) = 5.8653 
+ Number of Parameters = 8 
+ Model = Age Weight Neck Abdomen Thigh Forearm Wrist" title=" C(p) = 5.8653 
+ Number of Parameters = 8 
+ Model = Age Weight Neck Abdomen Thigh Forearm Wrist" coords="338,372,346,372,346,380,338,380,338,372,"/>
+<Area shape="poly" alt=" C(p) = 9.2646 
+ Number of Parameters = 11 
+ Model = Age Weight Neck Abdomen Hip Thigh Knee Ankle Forearm Wrist" title=" C(p) = 9.2646 
+ Number of Parameters = 11 
+ Model = Age Weight Neck Abdomen Hip Thigh Knee Ankle Forearm Wrist" coords="597,49,602,49,602,54,597,54,597,49,"/>
+<Area shape="poly" alt=" C(p) = 9.2167 
+ Number of Parameters = 10 
+ Model = Age Height Neck Chest Abdomen Hip Thigh Forearm Wrist" title=" C(p) = 9.2167 
+ Number of Parameters = 10 
+ Model = Age Height Neck Chest Abdomen Hip Thigh Forearm Wrist" coords="511,53,516,53,516,58,511,58,511,53,"/>
+<Area shape="poly" alt=" C(p) = 9.1858 
+ Number of Parameters = 8 
+ Model = Age Weight Chest Abdomen Thigh Forearm Wrist" title=" C(p) = 9.1858 
+ Number of Parameters = 8 
+ Model = Age Weight Chest Abdomen Thigh Forearm Wrist" coords="339,56,344,56,344,61,339,61,339,56,"/>
+<Area shape="poly" alt=" C(p) = 9.173 
+ Number of Parameters = 8 
+ Model = Age Weight Height Abdomen Thigh Forearm Wrist" title=" C(p) = 9.173 
+ Number of Parameters = 8 
+ Model = Age Weight Height Abdomen Thigh Forearm Wrist" coords="339,58,344,58,344,63,339,63,339,58,"/>
+<Area shape="poly" alt=" C(p) = 9.1543 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Thigh Knee Ankle Forearm Wrist" title=" C(p) = 9.1543 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Thigh Knee Ankle Forearm Wrist" coords="511,59,516,59,516,64,511,64,511,59,"/>
+<Area shape="poly" alt=" C(p) = 9.1419 
+ Number of Parameters = 10 
+ Model = Age Weight Height Neck Abdomen Thigh Ankle Forearm Wrist" title=" C(p) = 9.1419 
+ Number of Parameters = 10 
+ Model = Age Weight Height Neck Abdomen Thigh Ankle Forearm Wrist" coords="511,61,516,61,516,66,511,66,511,61,"/>
+<Area shape="poly" alt=" C(p) = 9.1409 
+ Number of Parameters = 8 
+ Model = Age Weight Neck Abdomen Knee Forearm Wrist" title=" C(p) = 9.1409 
+ Number of Parameters = 8 
+ Model = Age Weight Neck Abdomen Knee Forearm Wrist" coords="339,61,344,61,344,66,339,66,339,61,"/>
+<Area shape="poly" alt=" C(p) = 9.1317 
+ Number of Parameters = 11 
+ Model = Age Weight Height Neck Abdomen Hip Thigh Ankle Forearm Wrist" title=" C(p) = 9.1317 
+ Number of Parameters = 11 
+ Model = Age Weight Height Neck Abdomen Hip Thigh Ankle Forearm Wrist" coords="597,62,602,62,602,67,597,67,597,62,"/>
+<Area shape="poly" alt=" C(p) = 9.1261 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Chest Abdomen Thigh Ankle Forearm Wrist" title=" C(p) = 9.1261 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Chest Abdomen Thigh Ankle Forearm Wrist" coords="511,62,516,62,516,67,511,67,511,62,"/>
+<Area shape="poly" alt=" C(p) = 9.0605 
+ Number of Parameters = 8 
+ Model = Age Weight Abdomen Thigh Knee Forearm Wrist" title=" C(p) = 9.0605 
+ Number of Parameters = 8 
+ Model = Age Weight Abdomen Thigh Knee Forearm Wrist" coords="339,68,344,68,344,73,339,73,339,68,"/>
+<Area shape="poly" alt=" C(p) = 9.0478 
+ Number of Parameters = 9 
+ Model = Age Weight Abdomen Thigh Ankle Biceps Forearm Wrist" title=" C(p) = 9.0478 
+ Number of Parameters = 9 
+ Model = Age Weight Abdomen Thigh Ankle Biceps Forearm Wrist" coords="425,70,430,70,430,75,425,75,425,70,"/>
+<Area shape="poly" alt=" C(p) = 9.0122 
+ Number of Parameters = 9 
+ Model = Age Weight Abdomen Hip Thigh Ankle Forearm Wrist" title=" C(p) = 9.0122 
+ Number of Parameters = 9 
+ Model = Age Weight Abdomen Hip Thigh Ankle Forearm Wrist" coords="425,73,430,73,430,78,425,78,425,73,"/>
+<Area shape="poly" alt=" C(p) = 9.0016 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Knee Biceps Forearm Wrist" title=" C(p) = 9.0016 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Knee Biceps Forearm Wrist" coords="339,74,344,74,344,79,339,79,339,74,"/>
+<Area shape="poly" alt=" C(p) = 9 
+ Number of Parameters = 6 
+ Model = Weight Abdomen Biceps Forearm Wrist" title=" C(p) = 9 
+ Number of Parameters = 6 
+ Model = Weight Abdomen Biceps Forearm Wrist" coords="168,74,173,74,173,79,168,79,168,74,"/>
+<Area shape="poly" alt=" C(p) = 8.9899 
+ Number of Parameters = 8 
+ Model = Age Weight Height Neck Abdomen Forearm Wrist" title=" C(p) = 8.9899 
+ Number of Parameters = 8 
+ Model = Age Weight Height Neck Abdomen Forearm Wrist" coords="339,75,344,75,344,80,339,80,339,75,"/>
+<Area shape="poly" alt=" C(p) = 8.9635 
+ Number of Parameters = 9 
+ Model = Weight Neck Abdomen Hip Thigh Biceps Forearm Wrist" title=" C(p) = 8.9635 
+ Number of Parameters = 9 
+ Model = Weight Neck Abdomen Hip Thigh Biceps Forearm Wrist" coords="425,78,430,78,430,83,425,83,425,78,"/>
+<Area shape="poly" alt=" C(p) = 8.9476 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Thigh Biceps Forearm Wrist" title=" C(p) = 8.9476 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Thigh Biceps Forearm Wrist" coords="339,79,344,79,344,84,339,84,339,79,"/>
+<Area shape="poly" alt=" C(p) = 8.9368 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Ankle Biceps Forearm Wrist" title=" C(p) = 8.9368 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Ankle Biceps Forearm Wrist" coords="339,80,344,80,344,85,339,85,339,80,"/>
+<Area shape="poly" alt=" C(p) = 8.9063 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Hip Biceps Forearm Wrist" title=" C(p) = 8.9063 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Hip Biceps Forearm Wrist" coords="339,83,344,83,344,88,339,88,339,83,"/>
+<Area shape="poly" alt=" C(p) = 8.9037 
+ Number of Parameters = 8 
+ Model = Age Neck Abdomen Hip Thigh Forearm Wrist" title=" C(p) = 8.9037 
+ Number of Parameters = 8 
+ Model = Age Neck Abdomen Hip Thigh Forearm Wrist" coords="339,83,344,83,344,88,339,88,339,83,"/>
+<Area shape="poly" alt=" C(p) = 8.8935 
+ Number of Parameters = 7 
+ Model = Age Weight Abdomen Biceps Forearm Wrist" title=" C(p) = 8.8935 
+ Number of Parameters = 7 
+ Model = Age Weight Abdomen Biceps Forearm Wrist" coords="254,84,259,84,259,89,254,89,254,84,"/>
+<Area shape="poly" alt=" C(p) = 8.8101 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Chest Abdomen Biceps Forearm Wrist" title=" C(p) = 8.8101 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Chest Abdomen Biceps Forearm Wrist" coords="425,92,430,92,430,97,425,97,425,92,"/>
+<Area shape="poly" alt=" C(p) = 8.7705 
+ Number of Parameters = 11 
+ Model = Age Weight Neck Chest Abdomen Hip Thigh Biceps Forearm Wrist" title=" C(p) = 8.7705 
+ Number of Parameters = 11 
+ Model = Age Weight Neck Chest Abdomen Hip Thigh Biceps Forearm Wrist" coords="597,96,602,96,602,101,597,101,597,96,"/>
+<Area shape="poly" alt=" C(p) = 8.7609 
+ Number of Parameters = 11 
+ Model = Age Weight Neck Abdomen Hip Thigh Knee Biceps Forearm Wrist" title=" C(p) = 8.7609 
+ Number of Parameters = 11 
+ Model = Age Weight Neck Abdomen Hip Thigh Knee Biceps Forearm Wrist" coords="597,97,602,97,602,102,597,102,597,97,"/>
+<Area shape="poly" alt=" C(p) = 8.7588 
+ Number of Parameters = 6 
+ Model = Age Weight Abdomen Forearm Wrist" title=" C(p) = 8.7588 
+ Number of Parameters = 6 
+ Model = Age Weight Abdomen Forearm Wrist" coords="168,97,173,97,173,102,168,102,168,97,"/>
+<Area shape="poly" alt=" C(p) = 8.7555 
+ Number of Parameters = 9 
+ Model = Age Weight Height Neck Abdomen Biceps Forearm Wrist" title=" C(p) = 8.7555 
+ Number of Parameters = 9 
+ Model = Age Weight Height Neck Abdomen Biceps Forearm Wrist" coords="425,97,430,97,430,102,425,102,425,97,"/>
+<Area shape="poly" alt=" C(p) = 8.726 
+ Number of Parameters = 11 
+ Model = Age Weight Height Neck Abdomen Hip Thigh Biceps Forearm Wrist" title=" C(p) = 8.726 
+ Number of Parameters = 11 
+ Model = Age Weight Height Neck Abdomen Hip Thigh Biceps Forearm Wrist" coords="597,100,602,100,602,105,597,105,597,100,"/>
+<Area shape="poly" alt=" C(p) = 8.7232 
+ Number of Parameters = 7 
+ Model = Weight Neck Abdomen Thigh Forearm Wrist" title=" C(p) = 8.7232 
+ Number of Parameters = 7 
+ Model = Weight Neck Abdomen Thigh Forearm Wrist" coords="254,101,259,101,259,106,254,106,254,101,"/>
+<Area shape="poly" alt=" C(p) = 8.6981 
+ Number of Parameters = 8 
+ Model = Age Weight Neck Abdomen Ankle Forearm Wrist" title=" C(p) = 8.6981 
+ Number of Parameters = 8 
+ Model = Age Weight Neck Abdomen Ankle Forearm Wrist" coords="339,103,344,103,344,108,339,108,339,103,"/>
+<Area shape="poly" alt=" C(p) = 8.6753 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Hip Biceps Forearm Wrist" title=" C(p) = 8.6753 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Hip Biceps Forearm Wrist" coords="425,105,430,105,430,110,425,110,425,105,"/>
+<Area shape="poly" alt=" C(p) = 8.5203 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Knee Biceps Forearm Wrist" title=" C(p) = 8.5203 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Knee Biceps Forearm Wrist" coords="425,120,430,120,430,125,425,125,425,120,"/>
+<Area shape="poly" alt=" C(p) = 8.4908 
+ Number of Parameters = 10 
+ Model = Age Weight Height Neck Abdomen Thigh Biceps Forearm Wrist" title=" C(p) = 8.4908 
+ Number of Parameters = 10 
+ Model = Age Weight Height Neck Abdomen Thigh Biceps Forearm Wrist" coords="511,123,516,123,516,128,511,128,511,123,"/>
+<Area shape="poly" alt=" C(p) = 8.4884 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Chest Abdomen Thigh Biceps Forearm Wrist" title=" C(p) = 8.4884 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Chest Abdomen Thigh Biceps Forearm Wrist" coords="511,123,516,123,516,128,511,128,511,123,"/>
+<Area shape="poly" alt=" C(p) = 8.4811 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Thigh Knee Biceps Forearm Wrist" title=" C(p) = 8.4811 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Thigh Knee Biceps Forearm Wrist" coords="511,124,516,124,516,129,511,129,511,124,"/>
+<Area shape="poly" alt=" C(p) = 8.4087 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Hip Thigh Forearm Wrist" title=" C(p) = 8.4087 
+ Number of Parameters = 8 
+ Model = Weight Neck Abdomen Hip Thigh Forearm Wrist" coords="339,131,344,131,344,136,339,136,339,131,"/>
+<Area shape="poly" alt=" C(p) = 8.3307 
+ Number of Parameters = 8 
+ Model = Age Weight Abdomen Thigh Biceps Forearm Wrist" title=" C(p) = 8.3307 
+ Number of Parameters = 8 
+ Model = Age Weight Abdomen Thigh Biceps Forearm Wrist" coords="339,138,344,138,344,143,339,143,339,138,"/>
+<Area shape="poly" alt=" C(p) = 8.158 
+ Number of Parameters = 8 
+ Model = Age Weight Abdomen Hip Thigh Forearm Wrist" title=" C(p) = 8.158 
+ Number of Parameters = 8 
+ Model = Age Weight Abdomen Hip Thigh Forearm Wrist" coords="339,154,344,154,344,159,339,159,339,154,"/>
+<Area shape="poly" alt=" C(p) = 8.041 
+ Number of Parameters = 8 
+ Model = Age Weight Abdomen Thigh Ankle Forearm Wrist" title=" C(p) = 8.041 
+ Number of Parameters = 8 
+ Model = Age Weight Abdomen Thigh Ankle Forearm Wrist" coords="339,166,344,166,344,171,339,171,339,166,"/>
+<Area shape="poly" alt=" C(p) = 8.027 
+ Number of Parameters = 9 
+ Model = Age Height Neck Abdomen Hip Thigh Forearm Wrist" title=" C(p) = 8.027 
+ Number of Parameters = 9 
+ Model = Age Height Neck Abdomen Hip Thigh Forearm Wrist" coords="425,167,430,167,430,172,425,172,425,167,"/>
+<Area shape="poly" alt=" C(p) = 7.9907 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Ankle Biceps Forearm Wrist" title=" C(p) = 7.9907 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Ankle Biceps Forearm Wrist" coords="425,170,430,170,430,175,425,175,425,170,"/>
+<Area shape="poly" alt=" C(p) = 7.8986 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Chest Abdomen Hip Thigh Forearm Wrist" title=" C(p) = 7.8986 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Chest Abdomen Hip Thigh Forearm Wrist" coords="511,179,516,179,516,184,511,184,511,179,"/>
+<Area shape="poly" alt=" C(p) = 7.8966 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Hip Thigh Knee Forearm Wrist" title=" C(p) = 7.8966 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Hip Thigh Knee Forearm Wrist" coords="511,179,516,179,516,184,511,184,511,179,"/>
+<Area shape="poly" alt=" C(p) = 7.8651 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Thigh Knee Forearm Wrist" title=" C(p) = 7.8651 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Thigh Knee Forearm Wrist" coords="425,182,430,182,430,187,425,187,425,182,"/>
+<Area shape="poly" alt=" C(p) = 7.8246 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Chest Abdomen Thigh Forearm Wrist" title=" C(p) = 7.8246 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Chest Abdomen Thigh Forearm Wrist" coords="425,186,430,186,430,191,425,191,425,186,"/>
+<Area shape="poly" alt=" C(p) = 7.8146 
+ Number of Parameters = 9 
+ Model = Age Weight Height Neck Abdomen Thigh Forearm Wrist" title=" C(p) = 7.8146 
+ Number of Parameters = 9 
+ Model = Age Weight Height Neck Abdomen Thigh Forearm Wrist" coords="425,187,430,187,430,192,425,192,425,187,"/>
+<Area shape="poly" alt=" C(p) = 7.7282 
+ Number of Parameters = 10 
+ Model = Age Weight Height Neck Abdomen Hip Thigh Forearm Wrist" title=" C(p) = 7.7282 
+ Number of Parameters = 10 
+ Model = Age Weight Height Neck Abdomen Hip Thigh Forearm Wrist" coords="511,195,516,195,516,200,511,200,511,195,"/>
+<Area shape="poly" alt=" C(p) = 7.7067 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Thigh Ankle Biceps Forearm Wrist" title=" C(p) = 7.7067 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Thigh Ankle Biceps Forearm Wrist" coords="511,198,516,198,516,203,511,203,511,198,"/>
+<Area shape="poly" alt=" C(p) = 7.6018 
+ Number of Parameters = 7 
+ Model = Weight Neck Abdomen Biceps Forearm Wrist" title=" C(p) = 7.6018 
+ Number of Parameters = 7 
+ Model = Weight Neck Abdomen Biceps Forearm Wrist" coords="254,208,259,208,259,213,254,213,254,208,"/>
+<Area shape="poly" alt=" C(p) = 7.4937 
+ Number of Parameters = 7 
+ Model = Age Weight Neck Abdomen Forearm Wrist" title=" C(p) = 7.4937 
+ Number of Parameters = 7 
+ Model = Age Weight Neck Abdomen Forearm Wrist" coords="254,218,259,218,259,223,254,223,254,218,"/>
+<Area shape="poly" alt=" C(p) = 7.2729 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Hip Thigh Ankle Forearm Wrist" title=" C(p) = 7.2729 
+ Number of Parameters = 10 
+ Model = Age Weight Neck Abdomen Hip Thigh Ankle Forearm Wrist" coords="511,239,516,239,516,244,511,244,511,239,"/>
+<Area shape="poly" alt=" C(p) = 7.1778 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Thigh Ankle Forearm Wrist" title=" C(p) = 7.1778 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Thigh Ankle Forearm Wrist" coords="425,248,430,248,430,253,425,253,425,248,"/>
+<Area shape="poly" alt=" C(p) = 6.9017 
+ Number of Parameters = 8 
+ Model = Age Weight Neck Abdomen Biceps Forearm Wrist" title=" C(p) = 6.9017 
+ Number of Parameters = 8 
+ Model = Age Weight Neck Abdomen Biceps Forearm Wrist" coords="339,274,344,274,344,279,339,279,339,274,"/>
+<Area shape="poly" alt=" C(p) = 6.4929 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Thigh Biceps Forearm Wrist" title=" C(p) = 6.4929 
+ Number of Parameters = 9 
+ Model = Age Weight Neck Abdomen Thigh Biceps Forearm Wrist" coords="425,313,430,313,430,318,425,318,425,313,"/>
+<Area shape="poly" alt=" Slope = 2 
+ Y = -13" title=" Slope = 2 
+ Y = -13" coords="456,394,618,34,620,34,458,394,"/>
+<Area shape="poly" alt=" Slope = 1 
+ Y = 0" title=" Slope = 1 
+ Y = 0" coords="142,393,466,34,468,35,144,395,"/>
+</map>
+<div class="c">
+<img style="height: 480px; width: 640px" alt="Scatterplot showing the selection criterion, Mallows C(p), for PctBodyFat2." src="data:image/png;base64,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C9zrIUOGSKVSuvUIhyE9jlBbuNNdjY2NeXl577///nPPPffKK6/QLopXlZWVUqn00qVLlpaWH3zwAcMw48aNo10UHZs3b/78889pV0FBbGzsiBEjwsPDCSF9+/bNysqiXRHftm3btnz58u3btzc0NCxbtqyuro52RdTIZDI7OzvudZcuXR4/fky3HuEQ4hEwRyQSDRo0KC4ubs2aNbRr4ZuVldW+fft69er13HPPRUdHL1++nHZFdKSnp3ft2lWx7y8o8+fPnz9/flVVVVVV1fz5899++23aFfFt/Pjxb7755vjx40eMGOHh4eHg4EC7ImpsbW2rqqq41zKZzNbWlm49wiHcBsyRy+VWVla0q+Db4MGDc3JyuNcMwyh2foVm06ZNH330Ee0q6MjMzFyyZImdnZ2dnd2SJUt++OEH2hVR4Ovrm5OTc//+fS8vr5EjR9Iuhxp3d/dffvmFe339+nWJREK3HuEQYgMOCgo6evRoRUVFQUHBu++++8knn9CuiG9LliwJCwu7detWZWXlqlWrBDgGQAg5e/asra3t8OHDaRdCx5gxYyIiIiorK2tqavbs2TNmzBjaFfFt+vTpp0+frqmpuXjx4vLly7nReGF6++23P/zwwz///PPevXsrV66cP38+7YoEQ4BXQaenp48dO9be3t7Lyys1NZV2OXR88803L7zwgouLy549e2jXQseYMWMuXLhAuwpqSktLZ82a5eDg4ODgEBoaqrgeWDhOnDgxePBgc3PzQYMGCfDvAPn75b779u2TSCRubm5fffUVrZJ4RvTgKmg8jAEAAIBveBgDAAAAHWjAAAAAFKABAwAAUIAGDAAAQAEaMAAAAAVowAAAABSgAQMAAFCABgwAAEABGjAAAAAFaMAAAAAUoAEDAABQgAYMAABAARowQEcxDHP69OkmUzq4wI5V1LJ///vfvXv3HjduXJN1KTg6Or755psPHjzQxdpV09EmA+gzNGAALVi+fHllZSXtKtowefLkn3/++d///neT6Yrno929ezc4OHju3LlUygMQGjRgAC1YuXLl4sWLm09XPrBTvGYY5quvvurTp4+jo+O33367c+fObt269ezZ8+TJk4qZY2Nj7e3tfX19KyoquCk1NTUzZsywt7cPDg6ura1VLOqbb77x8/Nrst6qqqrJkyfb2dlNnTr10aNH3Jy1tbVisVjF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" usemap="#/saswork/SAS_work0D27000059C9_sasp_cdr01.aws.bms.com/#LN01684"/>
+</div>
+</article>
+</section>
+</section>
+</section>
+</section>
+</section>
+</div>
+</body>
+</html>
