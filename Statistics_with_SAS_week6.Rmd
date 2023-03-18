@@ -1,0 +1,176 @@
+---
+title: "Statistics With SAS - Week 5"
+author: "Hao Sun"
+output: 
+  html_document:
+    includes: 
+      in_header: header.html
+    css: "styles/agate.css"
+---
+
+
+## Week 6 {-}
+
+### Predictive Model {-}
+
+```{eval=FALSE, class='SAS'}
+/* st106d01.sas */
+
+/* Define macro variables for interval and categorical variables */
+%let interval=Gr_Liv_Area Basement_Area Garage_Area Deck_Porch_Area
+         Lot_Area Age_Sold Bedroom_AbvGr Total_Bathroom;
+%let categorical=House_Style2 Overall_Qual2 Overall_Cond2 Fireplaces
+         Season_Sold Garage_Type_2 Foundation_2 Heating_QC
+         Masonry_Veneer Lot_Shape_2 Central_Air;
+
+/* Enable ODS Graphics for creating plots */
+ods graphics;
+
+/* Perform model selection using PROC GLMSELECT */
+proc glmselect data=STAT1.ameshousing3
+               plots=all   /* Generate all available plots */
+               valdata=STAT1.ameshousing4; /* Validation data set */
+               
+    /* Specify categorical variables and their encoding method */
+    class &categorical / param=glm ref=first;
+    
+    /* Fit the model using the specified variables */
+    model SalePrice=&categorical &interval /
+               selection=backward  /* Use backward selection method */
+               select=sbc         /* Use Schwarz Bayesian Criterion for selection */
+               choose=validate;   /* Choose the best model based on validation data */
+               
+    /* Store the selected model in an item store */
+    store out=STAT1.amesstore;
+    
+    /* Set the title for the output */
+    title "Selecting the Best Model using Honest Assessment";
+run;
+
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st106d01-results.html">Result</a>
+
+```{eval=FALSE, class='SAS'}
+
+/* st106s01.sas */
+
+/* Define macro variables for interval and categorical variables */
+%let interval=Gr_Liv_Area Basement_Area Garage_Area Deck_Porch_Area
+         Lot_Area Age_Sold Bedroom_AbvGr Total_Bathroom;
+%let categorical=House_Style2 Overall_Qual2 Overall_Cond2 Fireplaces
+         Season_Sold Garage_Type_2 Foundation_2 Heating_QC
+         Masonry_Veneer Lot_Shape_2 Central_Air;
+
+/* Perform model selection using PROC GLMSELECT with partitioning */
+proc glmselect data=STAT1.ameshousing3
+               plots=all       /* Generate all available plots */
+               seed=8675309;   /* Set seed for random number generator */
+               
+    /* Specify categorical variables and their encoding method */
+    class &categorical / param=ref ref=first;
+    
+    /* Fit the model using the specified variables */
+    model SalePrice=&categorical &interval /
+               selection=stepwise  /* Use stepwise selection method */
+               (select=aic         /* Use Akaike Information Criterion for selection */
+               choose=validate)    /* Choose the best model based on validation data */
+               hierarchy=single;   /* Enforce single hierarchy in selection process */
+               
+    /* Partition the data into training and validation sets */
+    partition fraction(validate=0.3333);
+    
+    /* Set the title for the output */
+    title "Selecting the Best Model using Honest Assessment";
+run;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st106s01-results.html">Result</a>
+
+
+### Scoring Predictive Model {-}
+
+```{eval=FALSE, class='SAS'}
+/* st106d02.sas */  /* Part A */
+
+/* Restore the selected model from the item store */
+proc plm restore=STAT1.amesstore;
+    
+    /* Score the validation data using the selected model */
+    score data=STAT1.ameshousing4 out=scored;
+    
+    /* Save the scoring code to a file */
+    code file="&homefolder\scoring.sas";
+run;
+
+/* Create a new data set with the scored validation data */
+data scored2;
+    set STAT1.ameshousing4;
+    
+    /* Include the scoring code saved in the previous step */
+    %include "&homefolder\scoring.sas";
+run;
+
+/* Compare the scored data sets using PROC COMPARE */
+proc compare base=scored compare=scored2 criterion=0.0001;
+    var Predicted;          /* Compare the predicted values */
+    with P_SalePrice;       /* Reference the predicted values in the scored2 data set */
+run;
+
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st106d02-results.html">Result</a>
+
+
+```{eval=FALSE, class='SAS'}
+/* st106s02.sas */
+
+/* Perform model selection using PROC GLMSELECT with partitioning and scoring */
+proc glmselect data=STAT1.ameshousing3
+               seed=8675309
+               noprint;   /* Suppress the default printed output */
+               
+    /* Specify categorical variables and their encoding method */
+    class &categorical / param=ref ref=first;
+    
+    /* Fit the model using the specified variables */
+    model SalePrice=&categorical &interval /
+               selection=stepwise  /* Use stepwise selection method */
+               (select=aic         /* Use Akaike Information Criterion for selection */
+               choose=validate)    /* Choose the best model based on validation data */
+               hierarchy=single;   /* Enforce single hierarchy in selection process */
+               
+    /* Partition the data into training and validation sets */
+    partition fraction(validate=0.3333);
+    
+    /* Score the validation data using the selected model */
+    score data=STAT1.ameshousing4 out=score1;
+    
+    /* Store the selected model in an item store */
+    store out=store1;
+    
+    /* Set the title for the output */
+    title "Selecting the Best Model using Honest Assessment";
+run;
+
+/* Restore the selected model from the item store */
+proc plm restore=store1;
+    
+    /* Score the validation data using the selected model */
+    score data=STAT1.ameshousing4 out=score2;
+run;
+
+/* Compare the scored data sets using PROC COMPARE */
+proc compare base=score1 compare=score2 criterion=0.0001;
+    var P_SalePrice;          /* Compare the predicted values */
+    with Predicted;           /* Reference the predicted values in the score2 data set */
+run;
+
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st106s02-results.html">Result</a>
+

@@ -1,0 +1,177 @@
+---
+title: "Statistics With SAS - Week 7"
+author: "Hao Sun"
+output: 
+  html_document:
+    includes: 
+      in_header: header.html
+    css: "styles/agate.css"
+---
+
+## Week 7 {-}
+
+### Describing Categorical Variables {-}
+
+```{eval=FALSE, class='SAS'}
+/*st107d01.sas*/
+/* Clear any existing title */
+title;
+
+/* Create a custom format for Bonus variable */
+proc format;
+    value bonusfmt 1 = "Bonus Eligible"
+                   0 = "Not Bonus Eligible";
+run;
+
+/* Perform frequency analysis of variables in the ameshousing3 dataset */
+proc freq data=STAT1.ameshousing3;
+    /* Display frequency tables for Bonus, Fireplaces, Lot_Shape_2, 
+       and the interaction between Fireplaces and Bonus, 
+       and Lot_Shape_2 and Bonus */
+    tables Bonus Fireplaces Lot_Shape_2
+           Fireplaces*Bonus Lot_Shape_2*Bonus/
+           plots(only)=freqplot(scale=percent); /* Display frequency plots for each table */
+    format Bonus bonusfmt.; /* Apply the custom format to Bonus variable */
+run;
+
+/* Perform univariate analysis on Basement_Area variable in the ameshousing3 dataset */
+proc univariate data=STAT1.ameshousing3 noprint;
+    class Bonus; /* Separate analysis by Bonus categories */
+    var Basement_Area; /* Analyze the Basement_Area variable */
+    histogram Basement_Area; /* Display a histogram for Basement_Area */
+    /* Display summary statistics (mean, standard deviation, median, minimum, maximum) */
+    inset mean std median min max / format=5.2 position=nw; 
+    format Bonus bonusfmt.; /* Apply the custom format to Bonus variable */
+run;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d01-results.html">Result</a>
+
+
+
+```{eval=FALSE, class='SAS'}
+/*st107s01.sas*/  /*Part A*/
+/* Disable ODS graphics */
+ods graphics off;
+/* Perform frequency analysis on safety dataset */
+proc freq data=STAT1.safety;
+    /* Display frequency tables for Unsafe, Type, Region, and Size */
+    tables Unsafe Type Region Size;
+    title "Safety Data Frequencies";
+run;
+/* Enable ODS graphics */
+ods graphics on;
+
+/*st107s01.sas*/  /*Part B*/
+/* Create a custom format for Unsafe variable */
+proc format; 
+   value safefmt 0='Average or Above'
+                 1='Below Average';
+run;
+/* Perform frequency analysis on safety dataset */
+proc freq data=STAT1.safety;
+    /* Display frequency tables and statistics for interaction between Unsafe and Region */
+    tables Region*Unsafe / expected chisq relrisk;
+    format Unsafe safefmt.; /* Apply the custom format to Unsafe variable */
+    title "Association between Unsafe and Region";
+run;
+
+/*st107s01.sas*/  /*Part C*/
+/* Perform frequency analysis on safety dataset */
+proc freq data=STAT1.safety;
+    /* Display frequency tables and statistics for interaction between Unsafe and Size */
+    tables Size*Unsafe / chisq measures cl;
+    format Unsafe safefmt.; /* Apply the custom format to Unsafe variable */
+    title "Association between Unsafe and Size";
+run;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107s01-results.html">Result</a>
+
+
+### Tests of Association {-}
+
+
+```{eval=FALSE, class='SAS'}
+/*st107d02.sas*/
+/* Disable ODS graphics */
+ods graphics off;
+/* Perform frequency analysis on ameshousing3 dataset */
+proc freq data=STAT1.ameshousing3;
+    /* Display frequency tables and statistics for interaction between Lot_Shape_2, Fireplaces, and Bonus */
+    tables (Lot_Shape_2 Fireplaces)*Bonus
+          / chisq expected cellchi2 nocol nopercent 
+            relrisk;
+    format Bonus bonusfmt.; /* Apply the custom format to Bonus variable */
+    title 'Associations with Bonus';
+run;
+/* Enable ODS graphics */
+ods graphics on;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d02-results.html">Result</a>
+
+```{eval=FALSE, class='SAS'}
+/*st107d03.sas*/
+/* Disable ODS graphics */
+ods graphics off;
+/* Perform frequency analysis on ameshousing3 dataset */
+proc freq data=STAT1.ameshousing3;
+    /* Display frequency tables and statistics for interaction between Fireplaces and Bonus */
+    tables Fireplaces*Bonus / chisq measures cl;
+    format Bonus bonusfmt.; /* Apply the custom format to Bonus variable */
+    title 'Ordinal Association between FIREPLACES and BONUS?';
+run;
+/* Enable ODS graphics */
+ods graphics on;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d03-results.html">Result</a>
+
+
+### Logistic Regression {-}
+
+```{eval=FALSE, class='SAS'}
+/*st107d04.sas*/
+/* Enable ODS graphics */
+ods graphics on;
+/* Perform logistic regression on ameshousing3 dataset */
+proc logistic data=STAT1.ameshousing3 alpha=0.05
+              plots(only)=(effect oddsratio); /* Display effect and oddsratio plots */
+    /* Model the probability of Bonus (event='1') as a function of Basement_Area */
+    model Bonus(event='1')=Basement_Area / clodds=pl;
+    title 'LOGISTIC MODEL (1):Bonus=Basement_Area';
+run;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d04-results.html">Result</a>
+
+```{eval=FALSE, class='SAS'}
+/*st107s02.sas*/
+/* Enable ODS graphics */
+ods graphics on;
+/* Perform logistic regression on the safety dataset */
+proc logistic data=STAT1.safety plots(only)=(effect oddsratio); /* Display effect and oddsratio plots */
+    /* Model the probability of Unsafe (event='1') as a function of Weight */
+    model Unsafe(event='1')=Weight / clodds=pl;
+    title 'LOGISTIC MODEL (1):Unsafe=Weight';
+run;
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107s01-results.html">Result</a>
+
+
+
+### {-}
+
+```{eval=FALSE, class='SAS'}
+
+```
+
+<a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d01-results.html">Result</a>
