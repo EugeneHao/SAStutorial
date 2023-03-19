@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html class="ods_a7257812-7bc4-42da-84b0-dfdb36785826" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>Results: st107d07.sas</title>
+<style>
+/*<![CDATA[*/
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c section > table, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c section > pre, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c div > table,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c div > pre, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c article > table, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c article > pre,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j section > table, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j section > pre, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j div > table,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j div > pre, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j article > table, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j article > pre,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c p.note, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c p.warning, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c p.error, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c p.fatal,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j p.note, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j p.warning, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j p.error, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j p.fatal,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.c > table.layoutcontainer, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.l table, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.l pre, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.l p.note,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.l p.warning, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.l p.error, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.l p.fatal { margin-left: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.c table, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.c pre, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.c p.note,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.c p.warning, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.c p.error, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.r table, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.r pre, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.r p.note,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.r table, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.r pre, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.r p.note,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.r p.warning, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.r p.error, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion.r p.fatal { margin-right: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 article, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 aside, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 details, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 figcaption, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 figure, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 footer, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 header, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 hgroup, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 nav, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 section { display: block }
+html.ods_a7257812-7bc4-42da-84b0-dfdb36785826 { font-size: 100% }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 ul, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 dd { margin: 0 0 0 40px }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 nav ul, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 img { border: 0; vertical-align: middle }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 svg:not(:root) { overflow: hidden }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 figure { margin: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 table { border-collapse: collapse; border-spacing: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 p { margin-top: 0; text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 h1.heading1 { text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 h2.heading2 { text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 h3.heading3 { text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 h4.heading4 { text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 h5.heading5 { text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 h6.heading6 { text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 span { text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 table { margin-bottom: 1em }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 td, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 td[class$="fixed"], .ods_a7257812-7bc4-42da-84b0-dfdb36785826 th[class$="fixed"] { white-space: pre }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 section, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 article { padding-top: 1px; padding-bottom: 8px }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .stacked-value { text-align: left; display: block }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .stacked-cell > .stacked-value, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 td.data > td.data, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 th.data > td.data, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 th.data > th.data, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 td.data > th.data, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 th.header > th.header { border: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .stacked-cell > div.data { border-width: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > p { margin: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .batch { display: table }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .toc { display: none }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .proc_note_group, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .proc_title_group { margin-bottom: 1em }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 p.proctitle { margin: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 p.note, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 p.warning, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 p.error, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 p.fatal { display: table }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .notebanner, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .warnbanner, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .errorbanner, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .fatalbanner,
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .notecontent, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .warncontent, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .errorcontent, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .notebanner, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .warnbanner, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .errorbanner, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .fatalbanner { padding-right: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body > div > ol li { text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .c { text-align: center }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .r { text-align: right }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .l { text-align: left }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .j { text-align: justify }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .d { text-align: right }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .b { vertical-align: bottom }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .m { vertical-align: middle }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .t { vertical-align: top }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 a:active { color: #800080 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .batch > tbody, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .batch > thead, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .batch { border: hidden; }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bylinecontainer > col, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bylinecontainer > colgroup > col, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bylinecontainer > colgroup, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bylinecontainer > tr, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bylinecontainer > * > tr, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bylinecontainer > thead, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bylinecontainer > tbody, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bylinecontainer > tfoot { border: none; }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .cell, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .contentfolder, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .contentproclabel, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .data, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .graph > tbody, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .graph > thead, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .graph { border: hidden; }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .heading1, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .heading2, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .heading3, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .heading4, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .heading5, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .indexaction, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutcontainer, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 a:link { color: #0000ff }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list3, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list4, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list5, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list6, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list7, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list8, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem3, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem4, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem5, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem6, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem7, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem8, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .output > tbody, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .output > thead, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .output { border: hidden; }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .pagesproclabel, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .parskip > col, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .parskip > colgroup > col, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .parskip > colgroup, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .parskip > tr, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .parskip > * > tr, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .parskip > thead, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .parskip > tbody, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .parskip > tfoot { border: none; }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter10, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter2, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter3, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter4, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter5, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter6, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter7, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter8, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle10, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle2, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle3, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle4, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle5, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle6, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle7, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle8, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > col, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > colgroup > col, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > colgroup, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > tr, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > * > tr, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > thead, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > tbody, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer > tfoot { border: none; }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .table > col, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .table > tr, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .table { border: hidden; }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titleandnotecontainer > col, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titleandnotecontainer > colgroup > col, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titleandnotecontainer > colgroup, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titleandnotecontainer > tr, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titleandnotecontainer > * > tr, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titleandnotecontainer > thead, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titleandnotecontainer > tbody, .ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titleandnotecontainer > tfoot { border: none; }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 a:visited { color: #800080 }
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_a7257812-7bc4-42da-84b0-dfdb36785826 .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="body">
+<div id="div_a7257812-7bc4-42da-84b0-dfdb36785826" class="c body">
+<h1 class="body toc">Results: st107d07.sas</h1>
+<section data-name="Logistic" data-sec-type="proc">
+</section>
+<section data-name="PLM" data-sec-type="proc">
+<div id="IDX" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Predictions using PROC PLM</span> </p>
+</div>
+<div class="proc_title_group">
+<p class="c proctitle">The PLM Procedure</p>
+</div>
+<h1 class="contentprocname toc">The PLM Procedure</h1>
+<article aria-label="Store Information">
+<h1 class="contentitem toc">Store Information</h1>
+<table class="table" style="border-spacing: 0" aria-label="Store Information">
+<caption aria-label="Store Information"></caption>
+<colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">Store Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Item Store</th>
+<td class="data">WORK.ISBONUS</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Data Set Created From</th>
+<td class="data">STAT1.AMESHOUSING3</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Created By</th>
+<td class="data">PROC LOGISTIC</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Date Created</th>
+<td class="data">19MAR23:21:28:38</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Response Variable</th>
+<td class="data">Bonus</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Link Function</th>
+<td class="data">Logit</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Distribution</th>
+<td class="data">Binary</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Class Variables</th>
+<td class="data">Fireplaces Lot_Shape_2 Bonus</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Model Effects</th>
+<td class="data">Intercept Basement_Area Lot_Shape_2 Basement_*Lot_Shape_ Fireplaces</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section data-name="Print" data-sec-type="proc">
+<hr class="pagebreak"/>
+<div id="IDX1" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Predictions using PROC PLM</span> </p>
+</div>
+<h1 class="contentprocname toc">The Print Procedure</h1>
+<article aria-label="Data Set WORK.SCORED_HOUSES">
+<h1 class="contentitem toc">Data Set WORK.SCORED_HOUSES</h1>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.SCORED_HOUSES">
+<caption aria-label="Data Set WORK.SCORED_HOUSES"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="header" scope="col">Lot_Shape_2</th>
+<th class="r header" scope="col">Fireplaces</th>
+<th class="r header" scope="col">Basement_Area</th>
+<th class="r header" scope="col">Predicted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<td class="data">Regular</td>
+<td class="r data">0</td>
+<td class="r data">1060</td>
+<td class="r data">0.02192</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<td class="data">Regular</td>
+<td class="r data">2</td>
+<td class="r data">775</td>
+<td class="r data">0.00040</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3</th>
+<td class="data">Irregular</td>
+<td class="r data">2</td>
+<td class="r data">1100</td>
+<td class="r data">0.14210</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4</th>
+<td class="data">Irregular</td>
+<td class="r data">1</td>
+<td class="r data">975</td>
+<td class="r data">0.30608</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5</th>
+<td class="data">Regular</td>
+<td class="r data">1</td>
+<td class="r data">800</td>
+<td class="r data">0.00286</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+</div>
+</body>
+</html>
