@@ -309,10 +309,193 @@ run;
 </code></pre>
 <p><a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107s01-results.html">Result</a></p>
 </div>
+<div id="logistic-regression-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Logistic Regression</h3>
+<pre class="SAS" eval="FALSE,"><code>/*st107d05.sas*/
+
+/* Enable ODS graphics to display output plots */
+ods graphics on;
+
+/* Run logistic regression using PROC LOGISTIC */
+proc logistic data=STAT1.ameshousing3 plots(only)=(effect oddsratio);
+    /* Define reference levels for categorical variables */
+    class Fireplaces(ref=&#39;0&#39;) Lot_Shape_2(ref=&#39;Regular&#39;) / param=ref;
+
+    /* Specify the logistic regression model with the dependent variable &#39;Bonus&#39; (binary) and the independent variables &#39;Basement_Area&#39;, &#39;Fireplaces&#39;, and &#39;Lot_Shape_2&#39; */
+    model Bonus(event=&#39;1&#39;)=Basement_Area Fireplaces Lot_Shape_2 / clodds=pl;
+
+    /* Specify the unit change for &#39;Basement_Area&#39; for interpreting the coefficients */
+    units Basement_Area=100;
+
+    /* Set a title for the analysis */
+    title &#39;LOGISTIC MODEL (2):Bonus= Basement_Area Fireplaces Lot_Shape_2&#39;;
+run;
+</code></pre>
+<p><a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d05-results.html">Result</a></p>
+<pre class="SAS" eval="FALSE,"><code>/*st107s03.sas*/
+
+/* Enable ODS graphics to display output plots */
+ods graphics on;
+
+/* Run logistic regression using PROC LOGISTIC */
+proc logistic data=STAT1.safety plots(only)=(effect oddsratio);
+    /* Define reference levels and parameterization for categorical variables */
+    class Region (param=ref ref=&#39;Asia&#39;)
+          Size (param=ref ref=&#39;3&#39;);
+
+    /* Specify the logistic regression model with the dependent variable &#39;Unsafe&#39; (binary) and the independent variables &#39;Weight&#39;, &#39;Region&#39;, and &#39;Size&#39; */
+    model Unsafe(event=&#39;1&#39;)=Weight Region Size / clodds=pl;
+
+    /* Set a title for the analysis */
+    title &#39;LOGISTIC MODEL (2):Unsafe=Weight Region Size&#39;;
+run;
+</code></pre>
+<p><a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d01-results.html">Result</a></p>
+</div>
 <div id="section" class="section level3 unnumbered">
 <h3 class="unnumbered"></h3>
-<pre class="SAS" eval="FALSE,"><code></code></pre>
-<p><a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d01-results.html">Result</a></p>
+<pre class="SAS" eval="FALSE,"><code>/*st107d06.sas*/  /*Part A*/
+
+/* Run logistic regression using PROC LOGISTIC with backward elimination */
+proc logistic data=STAT1.ameshousing3 plots(only)=(effect oddsratio);
+    /* Define reference levels for categorical variables */
+    class Fireplaces(ref=&#39;0&#39;) Lot_Shape_2(ref=&#39;Regular&#39;) / param=ref;
+
+    /* Specify the logistic regression model with interactions and backward elimination */
+    model Bonus(event=&#39;1&#39;)=Basement_Area|Fireplaces|Lot_Shape_2 @2 / 
+          selection=backward clodds=pl slstay=0.10;
+
+    /* Specify the unit change for &#39;Basement_Area&#39; for interpreting the coefficients */
+    units Basement_Area=100;
+
+    /* Set a title for the analysis */
+    title &#39;LOGISTIC MODEL (3): Backward Elimination &#39;
+           &#39;Bonus=Basement_Area|Fireplaces|Lot_Shape_2&#39;;
+run;
+
+/*st107d06.sas*/  /*Part B*/
+
+/* Run logistic regression using PROC LOGISTIC with odds ratio plots */
+proc logistic data=STAT1.ameshousing3 
+              plots(only)=oddsratio(range=clip);
+    /* Define reference levels for categorical variables */
+    class Fireplaces(ref=&#39;0&#39;) Lot_Shape_2(ref=&#39;Regular&#39;) / param=ref;
+
+    /* Specify the logistic regression model with interactions */
+    model Bonus(event=&#39;1&#39;)=Basement_Area|Lot_Shape_2 Fireplaces;
+
+    /* Specify the unit change for &#39;Basement_Area&#39; for interpreting the coefficients */
+    units Basement_Area=100;
+
+    /* Calculate odds ratios for &#39;Basement_Area&#39; at different levels of &#39;Lot_Shape_2&#39; */
+    oddsratio Basement_Area / at (Lot_Shape_2=ALL) cl=pl;
+
+    /* Calculate odds ratios for &#39;Lot_Shape_2&#39; at different levels of &#39;Basement_Area&#39; */
+    oddsratio Lot_Shape_2 / at (Basement_Area=1000 1500) cl=pl;
+
+    /* Set a title for the analysis */
+    title &#39;LOGISTIC MODEL (3.1): Bonus=Basement_Area|Lot_Shape_2 Fireplaces&#39;;
+run;
+</code></pre>
+<p><a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d06-results.html">Result</a></p>
+<pre class="SAS" eval="FALSE,"><code>/*st107d07.sas*/
+
+/* Suppress output from the PROC LOGISTIC */
+ods select none;
+
+/* Run logistic regression using PROC LOGISTIC */
+proc logistic data=STAT1.ameshousing3;
+    /* Define reference levels for categorical variables */
+    class Fireplaces(ref=&#39;0&#39;) Lot_Shape_2(ref=&#39;Regular&#39;) / param=ref;
+
+    /* Specify the logistic regression model */
+    model Bonus(event=&#39;1&#39;)=Basement_Area|Lot_Shape_2 Fireplaces;
+
+    /* Specify the unit change for &#39;Basement_Area&#39; for interpreting the coefficients */
+    units Basement_Area=100;
+
+    /* Save the model to be used later in PROC PLM */
+    store out=isbonus;
+run;
+
+/* Enable output display again */
+ods select all;
+
+/* Create a new dataset &#39;newhouses&#39; with new observations */
+data newhouses;
+    length Lot_Shape_2 $9;
+    input Fireplaces Lot_Shape_2 $ Basement_Area;
+    datalines;
+    0  Regular    1060
+    2  Regular     775
+    2  Irregular  1100
+    1  Irregular   975
+    1  Regular     800
+    ;
+run;
+
+/* Use PROC PLM to score new observations with the stored model &#39;isbonus&#39; */
+proc plm restore=isbonus;
+    score data=newhouses out=scored_houses / ILINK;
+    title &#39;Predictions using PROC PLM&#39;;
+run;
+
+/* Print the scored dataset &#39;scored_houses&#39; */
+proc print data=scored_houses;
+run;
+</code></pre>
+<p><a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107d07-results.html">Result</a></p>
+<pre class="SAS" eval="FALSE,"><code>/*st107s04.sas*/
+
+/* Enable ODS graphics to display output plots */
+ods graphics on;
+
+/* Run logistic regression using PROC LOGISTIC with backward elimination */
+proc logistic data=STAT1.safety plots(only)=(effect oddsratio);
+    /* Define reference levels and parameterization for categorical variables */
+    class Region (param=ref ref=&#39;Asia&#39;)
+          Size (param=ref ref=&#39;Small&#39;);
+
+    /* Specify the logistic regression model with backward elimination */
+    model Unsafe(event=&#39;1&#39;) = Weight Region Size
+                  / clodds=pl selection=backward;
+
+    /* Specify the unit change for &#39;Weight&#39; for interpreting the coefficients */
+    units Weight = -1;
+
+    /* Save the model to be used later in PROC PLM */
+    store isSafe;
+
+    /* Apply the format &#39;sizefmt.&#39; to the &#39;Size&#39; variable */
+    format Size sizefmt.;
+
+    /* Set a title for the analysis */
+    title &#39;Logistic Model: Backwards Elimination&#39;;
+run;
+
+/* Create a new dataset &#39;checkSafety&#39; with new observations */
+data checkSafety;
+    length Region $9.;
+    input Weight Size Region $ 5-13;
+    datalines;
+4 1 N America
+3 1 Asia     
+5 3 Asia     
+5 2 N America
+    ;
+run;
+
+/* Use PROC PLM to score new observations with the stored model &#39;isSafe&#39; */
+proc plm restore=isSafe;
+    score data=checkSafety out=scored_cars / ILINK;
+    title &#39;Safety Predictions using PROC PLM&#39;;
+run;
+
+/* Print the scored dataset &#39;scored_cars&#39; */
+proc print data=scored_cars;
+run;
+</code></pre>
+<p><a href="https://htmlpreview.github.io/?https://github.com/EugeneHao/SAStutorial/blob/main/results/st107s04-results.html">Result</a></p>
 </div>
 </div>
 
